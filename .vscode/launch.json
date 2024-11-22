@@ -1,0 +1,25 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+    "name": "Microsoft docker sandbox",
+    "request": "launch",
+    "type": "al",
+    "environmentType": "Sandbox",
+    "server": "http://WILL3sandbox",
+    "serverInstance": "BC",
+    "tenant": "default",
+    "authentication": "UserPassword", 
+    "startupObjectId": 22,
+    "startupObjectType": "Page",
+    "schemaUpdateMode": "Synchronize",
+    "breakOnError": "All",
+    "launchBrowser": true,
+    "enableLongRunningSqlStatements": true,
+    "enableSqlInformationDebugger": true
+    }
+    ]
+    }
+    
+    

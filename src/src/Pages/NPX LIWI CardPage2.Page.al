@@ -51,19 +51,5 @@ page 50202 "NPX LIWI CardPage2"
         }
     }
 
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
 
 }

@@ -39,18 +39,5 @@ page 50203 "NPX LIWI ListPage2"
         }
     }
 
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
+   
 }

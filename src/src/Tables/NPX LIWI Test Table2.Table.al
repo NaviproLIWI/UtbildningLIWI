@@ -56,25 +56,4 @@ table 50201 "NPX LIWI Test Table2"
         }
     }
 
-
-    trigger OnInsert()
-    begin
-        "Created DT" := CurrentDateTime();
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }

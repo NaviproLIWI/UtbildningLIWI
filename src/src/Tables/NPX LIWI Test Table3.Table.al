@@ -79,27 +79,5 @@ table 50202 "NPX LIWI Test Table3"
         // Add changes to field groups here
     }
 
-    var
-        myInt: Integer;
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
 
 }

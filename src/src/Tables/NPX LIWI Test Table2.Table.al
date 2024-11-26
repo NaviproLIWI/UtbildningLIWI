@@ -5,14 +5,14 @@ table 50201 "NPX LIWI Test Table2"
 
     fields
     {
-        field(1; "No."; Integer)
+        field(1; "No."; Code[10])
         {
             DataClassification = ToBeClassified;
         }
         field(2; Type; Option)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = "Text","Number";
+            OptionMembers = " ","Text","Number";
         }
         field(3; Text; Text[100])
         {
@@ -42,7 +42,7 @@ table 50201 "NPX LIWI Test Table2"
 
         }
 
-        //Nya fält för mandatory fields
+
 
 
 

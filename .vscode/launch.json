@@ -11,7 +11,7 @@
     "serverInstance": "BC",
     "tenant": "default",
     "authentication": "UserPassword", 
-    "startupObjectId": 22,
+    "startupObjectId": 50204,
     "startupObjectType": "Page",
     "schemaUpdateMode": "Synchronize",
     "breakOnError": "All",

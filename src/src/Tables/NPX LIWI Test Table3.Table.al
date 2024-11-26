@@ -1,6 +1,6 @@
 table 50202 "NPX LIWI Test Table3"
 {
-    Caption = 'TestTable 3';
+    Caption = 'Mandatory Fields';
     DataClassification = ToBeClassified;
 
     fields

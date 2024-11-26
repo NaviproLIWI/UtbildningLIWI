@@ -36,7 +36,7 @@ page 50205 "NPX LIWI CardPage3"
                 field("Field Name"; Rec."Field Name")
                 {
                     ApplicationArea = all;
-                    Editable = false;
+                    Editable = false; 
                 }
                 field(Active; Rec.Active)
                 {
@@ -46,7 +46,7 @@ page 50205 "NPX LIWI CardPage3"
         }
     }
 
-  
+
 
 
 

@@ -11,23 +11,23 @@ page 50204 "NPX LIWI WSPage"
         {
             group("Filter Group")
             {
-                field("No."; Rec."No.")
+                field("No."; No)
                 {
                     ApplicationArea = all;
                     caption = 'No.';
                     ToolTip = 'No.';
-                    trigger OnValidate()
+                    trigger OnValidate() //filter
                     begin
                         CurrPage.Update();
                     end;
 
                 }
-                field(Type; Rec.Type)
+                field(Type; Type)
                 {
                     ApplicationArea = all;
                     Caption = 'Type';
                     ToolTip = 'Type';
-                    trigger OnValidate()
+                    trigger OnValidate() //filter
                     begin
                         CurrPage.Update();
                     end;
@@ -105,9 +105,8 @@ page 50204 "NPX LIWI WSPage"
             Rec.Type := Rec.Type::" "; // Återställ Type till blankt Enum-värde
     end;
 
-
-
-
-
+    var
+        No: Code[10];
+        Type: Option " ","Text","Number";
 
 }

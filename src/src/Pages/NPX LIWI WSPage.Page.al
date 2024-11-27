@@ -18,7 +18,7 @@ page 50204 "NPX LIWI WSPage"
                     ToolTip = 'No.';
                     trigger OnValidate() //filter
                     begin
-                        CurrPage.Update();
+                        ApplyFilters();
                     end;
 
                 }
@@ -29,7 +29,7 @@ page 50204 "NPX LIWI WSPage"
                     ToolTip = 'Type';
                     trigger OnValidate() //filter
                     begin
-                        CurrPage.Update();
+                        ApplyFilters();
                     end;
 
                 }
@@ -108,5 +108,19 @@ page 50204 "NPX LIWI WSPage"
     var
         No: Code[10];
         Type: Option " ","Text","Number";
+
+    local procedure ApplyFilters()
+    var
+        SelectionFilter: Record "NPX LIWI Test Table2";
+    begin
+        SelectionFilter.Copy(Rec);
+        if No <> '' then
+            SelectionFilter.SetRange("No.", No);
+        if Type <> Type::" " then
+            SelectionFilter.SetRange(Type, Type);
+
+        SetSelectionFilter(SelectionFilter);
+        CurrPage.Update();
+    end;
 
 }

@@ -11,23 +11,23 @@ page 50204 "NPX LIWI WSPage"
         {
             group("Filter Group")
             {
-                field("No."; No)
+                field("No."; FilteredNo)
                 {
                     ApplicationArea = all;
                     caption = 'No.';
                     ToolTip = 'No.';
-                    trigger OnValidate() //filter
+                    trigger OnValidate()
                     begin
                         ApplyFilters();
                     end;
 
                 }
-                field(Type; Type)
+                field(Type; FilteredType)
                 {
                     ApplicationArea = all;
                     Caption = 'Type';
                     ToolTip = 'Type';
-                    trigger OnValidate() //filter
+                    trigger OnValidate()
                     begin
                         ApplyFilters();
                     end;
@@ -36,6 +36,16 @@ page 50204 "NPX LIWI WSPage"
             }
             repeater("Lines")
             {
+                field("List No."; Rec."No.")
+                {
+                    Caption = 'No.';
+                    ApplicationArea = all;
+                }
+                field("List Type"; Rec.Type)
+                {
+                    Caption = 'Type';
+                    ApplicationArea = all;
+                }
                 field("Text"; Rec."Text")
                 {
                     ToolTip = 'Specifies the value of the Text field.', Comment = '%';
@@ -106,20 +116,16 @@ page 50204 "NPX LIWI WSPage"
     end;
 
     var
-        No: Code[10];
-        Type: Option " ","Text","Number";
+        FilteredNo: Code[10];
+        FilteredType: Option " ","Text","Number";
 
     local procedure ApplyFilters()
-    var
-        SelectionFilter: Record "NPX LIWI Test Table2";
     begin
-        SelectionFilter.Copy(Rec);
-        if No <> '' then
-            SelectionFilter.SetRange("No.", No);
-        if Type <> Type::" " then
-            SelectionFilter.SetRange(Type, Type);
-
-        SetSelectionFilter(SelectionFilter);
+        Rec.Reset();
+        if FilteredNo <> '' then
+            Rec.SetRange("No.", FilteredNo);
+        if FilteredType <> FilteredType::" " then
+            Rec.SetRange(Type, FilteredType);
         CurrPage.Update();
     end;
 

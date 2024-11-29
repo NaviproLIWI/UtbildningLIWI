@@ -1,7 +1,7 @@
 report 50201 "NPX LIWI Vendor Report"
 {
     ApplicationArea = All;
-    Caption = 'NPX LIWI Vendor Report';
+    Caption = 'Vendor Report';
     UsageCategory = ReportsAndAnalysis;
     ExcelLayout = 'NPX LIWI Vendor Report.xlsx';
     DefaultLayout = Excel;

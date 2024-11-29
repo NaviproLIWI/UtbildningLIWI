@@ -9,8 +9,11 @@ page 50202 "NPX LIWI CardPage2"
     {
         area(Content)
         {
+
             group(GroupName)
             {
+
+
 
                 field("No."; Rec."No.")
                 {
@@ -36,6 +39,7 @@ page 50202 "NPX LIWI CardPage2"
                 {
                     ToolTip = 'Specifies the value of the Result field.', Comment = '%';
                     Editable = false;
+                    Importance = Additional;
                 }
                 field(Error; Rec.Error)
                 {
@@ -46,6 +50,7 @@ page 50202 "NPX LIWI CardPage2"
                 {
                     ToolTip = 'Specifies the value of the Created DT field.', Comment = '%';
                     Editable = false;
+
                 }
             }
         }

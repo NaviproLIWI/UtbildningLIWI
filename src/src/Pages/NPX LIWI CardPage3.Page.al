@@ -17,6 +17,18 @@ page 50205 "NPX LIWI CardPage3"
                 {
                     Caption = 'Field No.';
                     ApplicationArea = all;
+                    LookupPageId = "NPX LIWI Customer Lookup";
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        CustomerRec: Record Customer;
+                    begin
+                        CustomerRec.Reset();
+                        if Page.RunModal(Page::"NPX LIWI Customer Lookup", CustomerRec) = Action::LookupOK then begin
+                            Rec."Field No." := CustomerRec."No.";
+                            rec.Validate("Field No.");
+
+                        end;
+                    end;
                 }
                 field("Type"; Rec."Type")
                 {
@@ -36,7 +48,7 @@ page 50205 "NPX LIWI CardPage3"
                 field("Field Name"; Rec."Field Name")
                 {
                     ApplicationArea = all;
-                    Editable = false; 
+                    Editable = false;
                 }
                 field(Active; Rec.Active)
                 {

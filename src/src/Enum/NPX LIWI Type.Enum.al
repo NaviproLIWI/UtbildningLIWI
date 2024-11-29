@@ -12,8 +12,9 @@ enum 50200 "NPX LIWI Type"
         Caption = 'Customer PK';
 
     }
-    value(2; "")
+    value(2; "Item")
     {
+        Caption = 'Item';
 
     }
 }

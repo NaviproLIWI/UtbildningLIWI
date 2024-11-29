@@ -12,23 +12,26 @@ table 50202 "NPX LIWI Test Table3"
 
 
         }
-        field(2; "Table No."; Integer)
+        field(2; "Table No."; Code[20])
         {
             DataClassification = ToBeClassified;
             Caption = 'Table No.';
         }
-        field(3; "Field No."; Integer)
+        field(3; "Field No."; Code[20])
         {
             DataClassification = ToBeClassified;
             Caption = 'Field No.';
-            TableRelation = Customer;
+            TableRelation = Customer."No.";
             trigger OnValidate()
             var
                 CustomerRec: Record Customer;
             begin
                 CustomerRec.Reset();
                 if CustomerRec.Get("Field No.") then begin
-                    "Table No." := CustomerRec."No. of Blanket Orders";
+                    "Table No." := CustomerRec."No.";
+                    "Table Name" := CustomerRec.TableName;
+                    "Field Name" := CustomerRec.Name;
+
 
                 end;
             end;

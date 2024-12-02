@@ -97,6 +97,35 @@ page 50200 "NPX LIWI ListPage"
                 end;
 
             }
+            action("Check All Descriptions")
+            {
+                Caption = 'Check All Descriptions';
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    SelectedRows: Record "NPX LIWI Test Table";
+                    DescriptionLbl: Label 'Row No: %1 - Description: %2.';
+                    DefaultDescriptionLbl: Label 'Row No: %1 - Description is empty. Using default: %2.';
+                    DefaultDescription: Text[100];
+                begin
+                    DefaultDescription := 'Default description';
+
+                    // Sätt filter för markerade rader
+                    CurrPage.SetSelectionFilter(SelectedRows);
+
+                    if SelectedRows.FindSet() then begin
+                        repeat
+                            if SelectedRows.Description <> '' then
+                                Message(DescriptionLbl, SelectedRows."No.", SelectedRows.Description)
+                            else
+                                Message(DefaultDescriptionLbl, SelectedRows."No.", DefaultDescription);
+                        until SelectedRows.Next() = 0;
+                    end else
+                        Message('No rows selected.');
+                end;
+            }
+
 
 
         }

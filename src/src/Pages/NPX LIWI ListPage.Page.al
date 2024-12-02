@@ -71,6 +71,32 @@ page 50200 "NPX LIWI ListPage"
 
 
             }
+            action("Article Description")
+            {
+                trigger OnAction()
+                var
+                    SelectedRow: Record "NPX LIWI Test Table";
+                    DescriptionLbl: Label 'Fetched description: %1.';
+                    DefaultDescription: Text[100];
+                begin
+                    DefaultDescription := 'Default description';
+
+                    CurrPage.SetSelectionFilter(SelectedRow);
+
+                    if SelectedRow.FindFirst() then begin
+                        if SelectedRow."No." <> '' then begin
+                            if SelectedRow.Description <> '' then
+                                Message(DescriptionLbl, SelectedRow.Description)
+                            else
+                                Message(DescriptionLbl, DefaultDescription);
+                        end else
+                            Message('The row is not an article');
+                    end else
+                        Message('No rows selected');
+
+                end;
+
+            }
 
 
         }

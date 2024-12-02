@@ -12,7 +12,7 @@
     "tenant": "default",
     "authentication": "UserPassword", 
     "startupObjectId": 50200,
-    "startupObjectType": "Report",
+    "startupObjectType": "Page",
     "schemaUpdateMode": "Synchronize",
     "breakOnError": "All",
     "launchBrowser": true,

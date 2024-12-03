@@ -56,6 +56,8 @@ page 50200 "NPX LIWI ListPage"
             }
             action("Selected Rows")
             {
+                ApplicationArea = All;
+                image = Process;
 
                 trigger OnAction()
                 var
@@ -73,6 +75,9 @@ page 50200 "NPX LIWI ListPage"
             }
             action("Article Description")
             {
+                ApplicationArea = All;
+                image = Process;
+
                 trigger OnAction()
                 var
                     SelectedRow: Record "NPX LIWI Test Table";
@@ -97,10 +102,11 @@ page 50200 "NPX LIWI ListPage"
                 end;
 
             }
-            action("Check All Descriptions")
+            action("Check All Articles")
             {
                 Caption = 'Check All Descriptions';
                 ApplicationArea = All;
+                image = Process;
 
                 trigger OnAction()
                 var

@@ -73,63 +73,66 @@ page 50200 "NPX LIWI ListPage"
 
 
             }
-            action("Article Description")
+            group(Descriptions)
             {
-                ApplicationArea = All;
-                image = Process;
+                action("Article Description")
+                {
+                    ApplicationArea = All;
+                    image = Process;
 
-                trigger OnAction()
-                var
-                    SelectedRow: Record "NPX LIWI Test Table";
-                    DescriptionLbl: Label 'Fetched description: %1.';
-                    DefaultDescription: Text[100];
-                begin
-                    DefaultDescription := 'Default description';
+                    trigger OnAction()
+                    var
+                        SelectedRow: Record "NPX LIWI Test Table";
+                        DescriptionLbl: Label 'Fetched description: %1.';
+                        DefaultDescription: Text[100];
+                    begin
+                        DefaultDescription := 'Default description';
 
-                    CurrPage.SetSelectionFilter(SelectedRow);
+                        CurrPage.SetSelectionFilter(SelectedRow);
 
-                    if SelectedRow.FindFirst() then begin
-                        if SelectedRow."No." <> '' then begin
-                            if SelectedRow.Description <> '' then
-                                Message(DescriptionLbl, SelectedRow.Description)
-                            else
-                                Message(DescriptionLbl, DefaultDescription);
+                        if SelectedRow.FindFirst() then begin
+                            if SelectedRow."No." <> '' then begin
+                                if SelectedRow.Description <> '' then
+                                    Message(DescriptionLbl, SelectedRow.Description)
+                                else
+                                    Message(DescriptionLbl, DefaultDescription);
+                            end else
+                                Message('The row is not an article');
                         end else
-                            Message('The row is not an article');
-                    end else
-                        Message('No rows selected');
+                            Message('No rows selected');
 
-                end;
+                    end;
 
-            }
-            action("Check All Articles")
-            {
-                Caption = 'Check All Descriptions';
-                ApplicationArea = All;
-                image = Process;
+                }
+                action("Check All Articles")
+                {
+                    Caption = 'Check All Descriptions';
+                    ApplicationArea = All;
+                    image = Process;
 
-                trigger OnAction()
-                var
-                    SelectedRows: Record "NPX LIWI Test Table";
-                    DescriptionLbl: Label 'Row No: %1 - Description: %2.';
-                    DefaultDescriptionLbl: Label 'Row No: %1 - Description is empty. Using default: %2.';
-                    DefaultDescription: Text[100];
-                begin
-                    DefaultDescription := 'Default description';
+                    trigger OnAction()
+                    var
+                        SelectedRows: Record "NPX LIWI Test Table";
+                        DescriptionLbl: Label 'Row No: %1 - Description: %2.';
+                        DefaultDescriptionLbl: Label 'Row No: %1 - Description is empty. Using default: %2.';
+                        DefaultDescription: Text[100];
+                    begin
+                        DefaultDescription := 'Default description';
 
-                    // Sätt filter för markerade rader
-                    CurrPage.SetSelectionFilter(SelectedRows);
+                        // Sätt filter för markerade rader
+                        CurrPage.SetSelectionFilter(SelectedRows);
 
-                    if SelectedRows.FindSet() then begin
-                        repeat
-                            if SelectedRows.Description <> '' then
-                                Message(DescriptionLbl, SelectedRows."No.", SelectedRows.Description)
-                            else
-                                Message(DefaultDescriptionLbl, SelectedRows."No.", DefaultDescription);
-                        until SelectedRows.Next() = 0;
-                    end else
-                        Message('No rows selected.');
-                end;
+                        if SelectedRows.FindSet() then begin
+                            repeat
+                                if SelectedRows.Description <> '' then
+                                    Message(DescriptionLbl, SelectedRows."No.", SelectedRows.Description)
+                                else
+                                    Message(DefaultDescriptionLbl, SelectedRows."No.", DefaultDescription);
+                            until SelectedRows.Next() = 0;
+                        end else
+                            Message('No rows selected.');
+                    end;
+                }
             }
 
 

@@ -28,9 +28,7 @@ report 50202 "NPX LIWI Process Only"
                     Caption = 'Has No Variants';
                     ToolTip = 'Check this option to fetch articles with no variants';
                 }
-
             }
-
         }
     }
 
@@ -64,7 +62,7 @@ report 50202 "NPX LIWI Process Only"
         Counter: Integer;
         ItemVariant: Record "Item Variant";
     begin
-        counter := 0;
+        Counter := 0;
 
         if Item.FindSet() then begin
             repeat
@@ -72,7 +70,6 @@ report 50202 "NPX LIWI Process Only"
                     ItemVariant.SetRange("Item No.", Item."No.");
                     if ItemVariant.FindFirst() then
                         exit;
-
                 end;
 
                 if Counter >= 10 then

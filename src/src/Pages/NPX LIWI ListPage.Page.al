@@ -20,7 +20,9 @@ page 50200 "NPX LIWI ListPage"
                 {
                     ApplicationArea = all;
                 }
+
             }
+
         }
 
     }
@@ -133,6 +135,46 @@ page 50200 "NPX LIWI ListPage"
                             Message('No rows selected.');
                     end;
                 }
+            }
+            group("Matematisk Räknare")
+            {
+                action(Calculate)
+                {
+                    Caption = 'Calculate';
+                    ApplicationArea = All;
+                    image = Calculate;
+
+                    trigger OnAction()
+                    var
+                        InputRec: Record "NPX LIWI Math Input" temporary;
+                        Calculator: Codeunit "NPX LIWI Calculator";
+                        Success: Boolean;
+                        InputPage: Page "NPX LIWI MathInput";
+                        CalcResult: Decimal;
+                        CalcErrorTxt: Text[250];
+                    begin
+                        InputRec.init();
+
+                        if InputPage.RunModal = Action::OK then begin
+                            //Hämta det inmatade uttrycket
+                            Calculator.SetText(InputRec."Expression");
+
+                            Success := Calculator.Calculate();
+
+                            Calculator.GetResultandError(CalcResult, CalcErrorTxt);
+
+                            if Success then
+                                Message('Result: %1', CalcResult)
+                            else
+                                Message('Error: %1', CalcErrorTxt);
+                        end else begin
+                            //Användaren valde att avbryta
+                            Message('Operation cancelled');
+                        end;
+                    end;
+
+                }
+
             }
 
 

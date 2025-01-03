@@ -9,7 +9,38 @@ report 50202 "NPX LIWI Process Only"
         dataitem(Item; Item)
         {
             DataItemTableView = sorting("No.");
+
+            trigger OnAfterGetRecord()
+            var
+                TestTable: Record "NPX LIWI Test Table";
+                ItemVariant: Record "Item Variant";
+            begin
+
+                if CleanOld then
+                    CleanOldData();
+
+                if HasNoVariants then begin
+                    ItemVariant.SetRange("Item No.", Item."No.");
+                    if ItemVariant.FindFirst() then
+                        exit;
+                end;
+
+                if not AllowInsert then
+                    exit;
+
+                if Counter >= 10 then
+                    CurrReport.Break();
+
+                TestTable.Init();
+                TestTable."No." := Item."No.";
+                TestTable.Description := Item.Description;
+                TestTable.Insert();
+
+                Counter += 1;
+            end;
+
         }
+
     }
 
     requestpage
@@ -32,19 +63,27 @@ report 50202 "NPX LIWI Process Only"
         }
     }
 
-    trigger OnPostReport()
-    var
-        FilterOkLbl: Label '10 rows have been fetched from "Item". Do you want to add them to the "NPX LIWI Test Table"?';
-        FilterCancelLbl: Label 'Operation was canceled.';
-        FilterDeleteLbl: Label 'Old data has been cleaned.';
+    // trigger OnPostReport()
+    // var
+    //     FilterOkLbl: Label '10 rows have been fetched from "Item". Do you want to add them to the "NPX LIWI Test Table"?';
+    //     FilterCancelLbl: Label 'Operation was canceled.';
+    //     FilterDeleteLbl: Label 'Old data has been cleaned.';
+    // begin
+    //     if CleanOld then
+    //         CleanOldData();
+
+    //     if Confirm(FilterOkLbl, false) then
+    //         ProcessItems()
+    //     else
+    //         Message(FilterCancelLbl);
+    // end;
+    trigger OnInitReport()
     begin
         if CleanOld then
             CleanOldData();
 
-        if Confirm(FilterOkLbl, false) then
-            ProcessItems()
-        else
-            Message(FilterCancelLbl);
+        if not Confirm(FilterOkLbl, false) then
+            AllowInsert := false;
     end;
 
     procedure CleanOldData()
@@ -54,38 +93,44 @@ report 50202 "NPX LIWI Process Only"
     begin
         TestTable.DeleteAll();
         Message(FilterDeleteLbl);
+        CleanOld := false;
     end;
 
-    procedure ProcessItems()
-    var
-        TestTable: Record "NPX LIWI Test Table";
-        Counter: Integer;
-        ItemVariant: Record "Item Variant";
-    begin
-        Counter := 0;
+    // procedure ProcessItems()
+    // var
+    //     TestTable: Record "NPX LIWI Test Table";
+    //     Counter: Integer;
+    //     ItemVariant: Record "Item Variant";
+    // begin
+    //     Counter := 0;
 
-        if Item.FindSet() then begin
-            repeat
-                if HasNoVariants then begin
-                    ItemVariant.SetRange("Item No.", Item."No.");
-                    if ItemVariant.FindFirst() then
-                        exit;
-                end;
+    //     if Item.FindSet() then begin
+    //         repeat
+    //             if HasNoVariants then begin
+    //                 ItemVariant.SetRange("Item No.", Item."No.");
+    //                 if ItemVariant.FindFirst() then
+    //                     exit;
+    //             end;
 
-                if Counter >= 10 then
-                    break;
+    //             if Counter >= 10 then
+    //                 break;
 
-                TestTable.Init();
-                TestTable."No." := Item."No.";
-                TestTable.Description := Item.Description;
-                TestTable.Insert();
+    //             TestTable.Init();
+    //             TestTable."No." := Item."No.";
+    //             TestTable.Description := Item.Description;
+    //             TestTable.Insert();
 
-                Counter += 1;
-            until Item.Next() = 0;
-        end;
-    end;
+    //         Counter += 1;
+    //         until Item.Next() = 0;
+    //     end;
+    // end;
 
     var
         CleanOld: Boolean;
         HasNoVariants: Boolean;
+        Counter: Integer;
+        FilterOkLbl: Label '10 rows have been fetched from "Item". Do you want to add them to the "NPX LIWI Test Table"?';
+        FilterCancelLbl: Label 'Operation was canceled.';
+        FilterDeleteLbl: Label 'Old data has been cleaned.';
+        AllowInsert: Boolean;
 }

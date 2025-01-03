@@ -10,7 +10,7 @@
     "server": "http://WILL3sandbox",
     "serverInstance": "BC",
     "tenant": "default",
-    "authentication": "UserPassword", 
+    "authentication": "UserPassword",
     "startupObjectId": 50200,
     "startupObjectType": "Page",
     "schemaUpdateMode": "Synchronize",

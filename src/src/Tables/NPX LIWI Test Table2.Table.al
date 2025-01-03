@@ -8,6 +8,7 @@ table 50201 "NPX LIWI Test Table2"
         field(1; "No."; Code[10])
         {
             DataClassification = ToBeClassified;
+
         }
         field(2; Type; Option)
         {
@@ -20,7 +21,8 @@ table 50201 "NPX LIWI Test Table2"
             trigger OnValidate()
             begin
                 Valid := true;
-                Error := ' ';
+                Error := '';
+                Result := '';
             end;
         }
         field(4; Valid; Boolean)
@@ -55,5 +57,11 @@ table 50201 "NPX LIWI Test Table2"
             Clustered = true;
         }
     }
+    trigger OnInsert()
+    begin
+        "Created DT" := CurrentDateTime();
+    end;
+
+
 
 }

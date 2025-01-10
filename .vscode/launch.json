@@ -11,14 +11,29 @@
     "serverInstance": "BC",
     "tenant": "default",
     "authentication": "UserPassword",
-    "startupObjectId": 50200,
+    "startupObjectId": 50202,
     "startupObjectType": "Page",
-    "schemaUpdateMode": "Synchronize",
+    "schemaUpdateMode": "ForceSync",
     "breakOnError": "All",
     "launchBrowser": true,
     "enableLongRunningSqlStatements": true,
     "enableSqlInformationDebugger": true
+    },
+    {
+        "name": "Interpreter Test",
+        "type": "al",
+        "request": "launch",
+        "server": "https://businesscentral.dynamics.com/",
+        "serverInstance": "0f6c6e9d-a8b7-43c5-a7b5-16f80a4bd997",
+        "tenant": "default",
+        "startupObjectId": 50202,
+        "startupObjectType": "Page",
+        "schemaUpdateMode": "Synchronize",
+        "launchBrowser": true,
+        "enableLongRunningSqlStatements": true,
+        "enableSqlInformationDebugger": true
     }
+    
     ]
     }
     

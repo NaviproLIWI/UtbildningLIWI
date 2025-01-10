@@ -17,4 +17,6 @@ enum 50200 "NPX LIWI Type"
         Caption = 'Item';
 
     }
+
+
 }

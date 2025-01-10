@@ -10,10 +10,10 @@ table 50201 "NPX LIWI Test Table2"
             DataClassification = ToBeClassified;
 
         }
-        field(2; Type; Option)
+        field(2; Type; Enum NewType)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = " ","Text","Number";
+            Caption = 'Type';
         }
         field(3; Text; Text[100])
         {
@@ -30,7 +30,7 @@ table 50201 "NPX LIWI Test Table2"
             DataClassification = ToBeClassified;
 
         }
-        field(5; Result; Text[20])
+        field(5; Result; Text[50])
         {
             DataClassification = ToBeClassified;
         }
@@ -41,8 +41,8 @@ table 50201 "NPX LIWI Test Table2"
         field(7; "Created DT"; DateTime)
         {
             DataClassification = ToBeClassified;
-
         }
+
 
 
 

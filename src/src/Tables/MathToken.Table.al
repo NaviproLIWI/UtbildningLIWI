@@ -1,27 +1,28 @@
-table 50203 "NPX LIWI Math Input"
+table 50203 "MathToken"
 {
     DataClassification = ToBeClassified;
 
     fields
     {
-        field(1; ID; Integer)
+        field(1; "TokenType"; Enum TokenType)
         {
             DataClassification = ToBeClassified;
-            AutoIncrement = true;
+
         }
-        field(2; Expression; Text[250])
+        field(2; "Value"; Text[50])
         {
             DataClassification = ToBeClassified;
+
         }
     }
-    
+
     keys
     {
-        key(PK; "ID")
+        key(PK; TokenType, "Value")
         {
             Clustered = true;
         }
     }
+
+
 }
-    
-    

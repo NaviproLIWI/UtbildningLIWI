@@ -1,5 +1,6 @@
 page 50202 "NPX LIWI CardPage2"
 {
+    Caption = 'MATEMATISK RÄKNARE';
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
@@ -29,6 +30,51 @@ page 50202 "NPX LIWI CardPage2"
                 {
                     ToolTip = 'Specifies the value of the Text field.', Comment = '%';
                     Editable = true;
+
+                    trigger OnValidate()
+                    var
+                        Calculator: Codeunit Calculator;
+                        Succes: Boolean;
+                        LocalResult: Decimal;
+                        LocalError: Text[250];
+                    begin
+                        rec.Valid := true;
+                        rec.Error := '';
+                        rec.Result := '';
+
+                        if rec.Text = '' then begin
+                            rec.Error := 'Inget uttryck angivet.';
+                            exit;
+                        end;
+
+
+
+                        // if Rec.Text <> '' then begin
+                        Calculator.SetText(rec.Text);
+                        Succes := Calculator.Execute();
+
+                        if Succes then begin
+                            LocalResult := Calculator.GetResult();
+                            Rec.Result := Format(LocalResult);
+                            Rec.Error := '';
+                        end else begin
+                            LocalError := Calculator.GetErrorText();
+                            rec.Error := LocalError;
+                            Rec.Result := Format(0);
+                            exit;
+
+                            // Rec.Valid := false;
+                            // LocalError := Calculator.GetErrorText();
+                            // Rec.Error := LocalError;
+                        end;
+                        // end else begin
+                        //     Rec.Result := Format(0);
+                        //     Rec.Valid := false
+                        //     Rec.Error := 'Inget uttryck angivet.';
+                        // end;
+
+                    end;
+
                 }
                 field(Valid; Rec.Valid)
                 {
@@ -56,6 +102,50 @@ page 50202 "NPX LIWI CardPage2"
         }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action("Calculate")
+            {
+                Caption = 'Beräkna';
+                Image = Calculate;
+                ApplicationArea = all;
 
+                trigger OnAction()
+                var
+                    Parser: codeunit MathParser;
+                    CalculationResult: Decimal;
+                    CalculationError: Text[250];
+                begin
+                    if rec.Text <> '' then begin
+                        if Parser.ParseAndEval(Rec.Text, CalculationResult, CalculationError) then begin
+                            rec.Result := Format(CalculationResult);
+                            rec.Valid := true;
+                            rec.Error := '';
+                            Message('Resultat: %1', CalculationResult);
+                        end else begin
+                            rec.Result := Format(0);
+                            rec.Valid := false;
+                            rec.Error := CalculationError;
+                            Message('Fel: %1', CalculationError);
+                        end;
+                    end else begin
+                        rec.Result := Format(0);
+                        rec.Valid := false;
+                        rec.Error := 'Inget uttryck angivet.';
+                        Message('Fel: Ingen uttryck angiven.');
+                    end;
+
+                end;
+            }
+        }
+    }
+
+
+
+
+    var
+        Expression: Text;
 
 }

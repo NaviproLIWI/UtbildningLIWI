@@ -9,9 +9,9 @@ codeunit 50201 "Math Lexer"
 
     procedure Init(InputText: Text)
     begin
-        Text := InputText;
+        Text := DelChr(InputText, '=', ' '); //TODO: DelCHr här
         Pos := 1;
-        if StrLen(Text) >= 1 then
+        if StrLen(Text) >= 1 then //TODO: ändrade till 0
             CurrentChar := Text[Pos]
         else
             CurrentChar := ' ';
@@ -23,66 +23,68 @@ codeunit 50201 "Math Lexer"
         TokenManager: Codeunit "Math Token Manager";
     begin
         while CurrentChar <> ' ' do begin
-            if CurrentChar = ' ' then
-                Advance()
-            else
+            if CurrentChar = ' ' then begin
+                Advance();
+
+            end else begin
                 if IsDigit(CurrentChar) then
-                    exit(CreateNumberToken);
+                    exit(CreateNumberToken());
 
-            if IsDigit(CurrentChar) then // or (CurrentChar = ',') or (CurrentChar = '.') then
-                exit(CreateNumberToken());
+                // if IsDigit(CurrentChar) or (CurrentChar = ',') or (CurrentChar = '.') then
+                //     exit(CreateNumberToken());
 
-            case CurrentChar of
-                '+':
-                    begin
-                        Advance();
-                        TokenRec.Init();
-                        TokenRec.TokenType := Enum::TokenType::ADD;
-                        TokenRec.Value := '+';
-                        exit(TokenRec);
-                    end;
-                '-':
-                    begin
-                        Advance();
-                        TokenRec.Init();
-                        TokenRec.TokenType := Enum::TokenType::MINUS;
-                        TokenRec.Value := '-';
-                        exit(TokenRec);
-                    end;
-                '*':
-                    begin
-                        Advance();
-                        TokenRec.Init();
-                        TokenRec.TokenType := Enum::TokenType::MULTIPLY;
-                        TokenRec.Value := '*';
-                        exit(TokenRec);
-                    end;
-                '/':
-                    begin
-                        Advance();
-                        TokenRec.Init();
-                        TokenRec.TokenType := Enum::TokenType::DIVISION;
-                        TokenRec.Value := '/';
-                        exit(TokenRec);
-                    end;
-                '(':
-                    begin
-                        Advance();
-                        TokenRec.Init();
-                        TokenRec.TokenType := Enum::TokenType::LBRACE;
-                        TokenRec.Value := '(';
-                        exit(TokenRec);
-                    end;
-                ')':
-                    begin
-                        Advance();
-                        TokenRec.Init();
-                        TokenRec.TokenType := Enum::TokenType::RBRACE;
-                        TokenRec.Value := ')';
-                        exit(TokenRec);
-                    end;
-                else begin
-                    exit(TokenRec);
+                case CurrentChar of
+                    '+':
+                        begin
+                            Advance();
+                            TokenRec.Init();
+                            TokenRec.TokenType := Enum::TokenType::ADD;
+                            TokenRec.Value := '+';
+                            exit(TokenRec);
+                        end;
+                    '-':
+                        begin
+                            Advance();
+                            TokenRec.Init();
+                            TokenRec.TokenType := Enum::TokenType::MINUS;
+                            TokenRec.Value := '-';
+                            exit(TokenRec);
+                        end;
+                    '*':
+                        begin
+                            Advance();
+                            TokenRec.Init();
+                            TokenRec.TokenType := Enum::TokenType::MULTIPLY;
+                            TokenRec.Value := '*';
+                            exit(TokenRec);
+                        end;
+                    '/':
+                        begin
+                            Advance();
+                            TokenRec.Init();
+                            TokenRec.TokenType := Enum::TokenType::DIVISION;
+                            TokenRec.Value := '/';
+                            exit(TokenRec);
+                        end;
+                    '(':
+                        begin
+                            Advance();
+                            TokenRec.Init();
+                            TokenRec.TokenType := Enum::TokenType::LBRACE;
+                            TokenRec.Value := '(';
+                            exit(TokenRec);
+                        end;
+                    ')':
+                        begin
+                            Advance();
+                            TokenRec.Init();
+                            TokenRec.TokenType := Enum::TokenType::RBRACE;
+                            TokenRec.Value := ')';
+                            exit(TokenRec);
+                        end;
+                    else
+                        Error('Unknown character: %1', CurrentChar);
+                // exit(TokenRec);
                 end;
 
             end
@@ -93,9 +95,10 @@ codeunit 50201 "Math Lexer"
         exit(TokenRec);
     end;
 
+
     local procedure Advance()
     begin
-        pos += 1;
+        pos += 1; //TODO: ändrade till två st Pos
         if Pos > StrLen(Text) then
             CurrentChar := ' '
         else
@@ -115,16 +118,18 @@ codeunit 50201 "Math Lexer"
         DecimalPointUsed: Boolean;
     begin
         NumberStr := '';
-        DecimalPointUsed := false;
+        DecimalPointUsed := false; //TODO: kolla denna
 
-        while (IsDigit(CurrentChar)) or ((CurrentChar = '.') and not DecimalPointUsed) do begin
-            if CurrentChar = '.' then
+        while (IsDigit(CurrentChar)) or ((CurrentChar = '.') or (CurrentChar = ',') and not DecimalPointUsed) do begin
+            if (CurrentChar = '.') or (CurrentChar = ',') then begin
                 DecimalPointUsed := true;
-
-
-            NumberStr += CurrentChar;
+                NumberStr += '.';
+            end else
+                NumberStr += CurrentChar;
             Advance();
         end;
+
+
         TokenRec.Init();
         TokenRec.TokenType := Enum::TokenType::NUMBER;
         TokenRec.Value := NumberStr;

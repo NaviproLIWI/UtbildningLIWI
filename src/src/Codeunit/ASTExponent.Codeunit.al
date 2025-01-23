@@ -21,7 +21,6 @@ codeunit 50200 "AST Exponent" implements I_ASTNode
     begin
         Base := LeftNode.Eval();
         Exponent := RightNode.Eval();
-
         if Exponent < 0 then
             Error('Exponenten måste vara icke-negativ.');
 

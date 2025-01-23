@@ -14,8 +14,10 @@ codeunit 50207 "ASTDivide" implements I_ASTNode
 
     procedure Eval(): Decimal
     begin
+
         if RightNode.Eval() = 0 then
             Error('Division med noll är inte tillåten.');
+
         exit(LeftNode.Eval() / RightNode.Eval());
     end;
 

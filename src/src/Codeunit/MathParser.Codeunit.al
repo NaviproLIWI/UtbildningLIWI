@@ -40,6 +40,7 @@ codeunit 50208 MathParser
             exit(false);
 
         while CurrentToken.TokenType in [Enum::TokenType::ADD, Enum::TokenType::MINUS] do begin
+            Message('Building node: %1', CurrentToken.TokenType);
             if CurrentToken.TokenType = Enum::TokenType::ADD then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Term(RightNode, ErrorMsg) then
@@ -130,7 +131,19 @@ codeunit 50208 MathParser
     end;
 
     local procedure TryParseDecimal(Value: Text; var Result: Decimal): Boolean
+    var
+        ConvertedValue: Text;
     begin
+        if Evaluate(Result, Value) then
+            exit(true);
+
+        ConvertedValue := Value.Replace('.', ',');
+        if Evaluate(Result, ConvertedValue) then
+            exit(true);
+        ConvertedValue := Value.Replace(',', '.');
+        if Evaluate(Result, ConvertedValue) then
+            exit(true);
+
         if not Evaluate(Result, Value) then begin
             Result := 0;
             exit(false);

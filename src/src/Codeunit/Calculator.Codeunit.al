@@ -15,7 +15,7 @@ codeunit 50209 Calculator
 
     procedure SetText(InputText: Text)
     begin
-        CalculationText := InputText;
+        CalculationText := InputText; //TODO: steg 2
     end;
 
     procedure GetResult(): Decimal
@@ -36,6 +36,7 @@ codeunit 50209 Calculator
         CalculationResult := 0;
         ErrorText := '';
         CalculationAccomplished := false;
+
         Succes := Parser.ParseAndEval(CalculationText, CalculationResult, ErrorText);
 
         if Succes then begin

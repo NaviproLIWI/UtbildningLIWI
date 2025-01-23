@@ -18,11 +18,48 @@ table 50201 "NPX LIWI Test Table2"
         field(3; Text; Text[100])
         {
             DataClassification = ToBeClassified;
-            trigger OnValidate()
+            // trigger OnValidate()
+            // begin
+            //     Valid := true;
+            //     Error := '';
+            //     Result := ''; 
+            // end;
+
+            trigger OnValidate() //TODO: Lade OnValidate I table istället för test.
+            var
+                Calculator: Codeunit Calculator;
+                Succes: Boolean;
+                LocalResult: Decimal;
+                LocalError: Text[250];
             begin
-                Valid := true;
-                Error := '';
-                Result := '';
+                rec.Valid := true; //TODO: steg1
+                rec.Error := '';
+                rec.Result := '';
+
+                if rec.Text = '' then begin
+                    rec.Error := 'Inget uttryck angivet.';
+                    exit;
+                end;
+
+
+
+                // if Rec.Text <> '' then begin
+                Calculator.SetText(rec.Text);
+                Succes := Calculator.Execute();
+
+                if Succes then begin
+                    LocalResult := Calculator.GetResult();
+                    Rec.Result := Format(LocalResult, 0, '<Integer>'); //TODO: ta bort mellanslag
+                    Rec.Error := '';
+                end else begin
+                    LocalError := Calculator.GetErrorText();
+                    rec.Error := LocalError;
+                    Rec.Result := '';
+
+                end;
+                Rec.Modify(true);
+
+
             end;
         }
         field(4; Valid; Boolean)
@@ -58,9 +95,41 @@ table 50201 "NPX LIWI Test Table2"
         }
     }
     trigger OnInsert()
+    var
+        MaxRec: Record "NPX LIWI Test Table2";
+        MaxNo: Integer;
+        MaxNoStr: Text[10];
     begin
+        if MaxRec.FindLast() then begin
+            if Evaluate(MaxNo, MaxRec."No.") then
+                MaxNo := MaxNo + 1
+            else
+                MaxNo := 0;
+        end else
+            MaxNo := 0;
+
+        MaxNoStr := Format(MaxNo);
+        "No." := MaxNoStr;
+
         "Created DT" := CurrentDateTime();
     end;
+
+    // if FindLast() then begin
+    //     if Evaluate(MaxNo, "No.") then
+    //         MaxNo := MaxNo + 1
+    //     else
+    //         MaxNo := 0;
+    // end else
+    //     MaxNo := 0;
+
+    // MaxNoStr := Format(MaxNo);
+    // "No." := MaxNoStr;
+
+
+
+
+
+
 
 
 

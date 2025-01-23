@@ -20,19 +20,23 @@
     "enableSqlInformationDebugger": true
     },
     {
-        "name": "Interpreter Test",
+        "name": "Trainee",
         "type": "al",
         "request": "launch",
-        "server": "https://businesscentral.dynamics.com/",
-        "serverInstance": "0f6c6e9d-a8b7-43c5-a7b5-16f80a4bd997",
-        "tenant": "default",
-        "startupObjectId": 50202,
-        "startupObjectType": "Page",
-        "schemaUpdateMode": "Synchronize",
+        "environmentType": "Sandbox",
+        "environmentName": "Trainee",
+        "tenant": "0f6c6e9d-a8b7-43c5-a7b5-16f80a4bd997",
         "launchBrowser": true,
+        "startupObjectId": 9307,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "breakOnRecordWrite": "None",
+        "enableSqlInformationDebugger": true,
         "enableLongRunningSqlStatements": true,
-        "enableSqlInformationDebugger": true
-    }
+        "longRunningSqlStatementsThreshold": 500,
+        "numberOfSqlStatements": 10,
+        "schemaUpdateMode": "Synchronize"
+    },
     
     ]
     }

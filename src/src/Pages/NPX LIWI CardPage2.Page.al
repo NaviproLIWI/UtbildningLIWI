@@ -19,7 +19,7 @@ page 50202 "NPX LIWI CardPage2"
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.', Comment = '%';
-                    Editable = true;
+                    Editable = false; //TODO: satte till false för test
                 }
                 field("Type"; Rec."Type")
                 {
@@ -55,23 +55,16 @@ page 50202 "NPX LIWI CardPage2"
 
                         if Succes then begin
                             LocalResult := Calculator.GetResult();
-                            Rec.Result := Format(LocalResult);
+                            Rec.Result := Format(LocalResult, 0, '<Integer>'); //TODO: ta bort mellanslag
                             Rec.Error := '';
                         end else begin
                             LocalError := Calculator.GetErrorText();
                             rec.Error := LocalError;
-                            Rec.Result := Format(0);
-                            exit;
+                            Rec.Result := '';
 
-                            // Rec.Valid := false;
-                            // LocalError := Calculator.GetErrorText();
-                            // Rec.Error := LocalError;
                         end;
-                        // end else begin
-                        //     Rec.Result := Format(0);
-                        //     Rec.Valid := false
-                        //     Rec.Error := 'Inget uttryck angivet.';
-                        // end;
+                        Rec.Modify(true);
+
 
                     end;
 

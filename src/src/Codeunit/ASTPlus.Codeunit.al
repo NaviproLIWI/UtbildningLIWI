@@ -14,7 +14,7 @@ codeunit 50203 "ASTPlus" implements I_ASTNode
 
     procedure Eval(): Decimal
     begin
-        exit(LeftNode.Eval() + RightNode.Eval()); //TODO: RecursionDepth +1
+        exit(LeftNode.Eval() + RightNode.Eval());
     end;
 
     procedure ToString(): Text

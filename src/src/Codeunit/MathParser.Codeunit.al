@@ -29,35 +29,75 @@ codeunit 50208 MathParser
         exit(true);
     end;
 
+    local procedure CreateASTPlus(Left: Interface "I_ASTNode"; Right: Interface "I_ASTNode"): Interface I_ASTNode
+    var
+        PlusInstance: codeunit ASTPlus;
+    begin
+        PlusInstance.InitPlus(Left, Right);
+        exit(PlusInstance);
+    end;
+
+    local procedure CreateASTMinus(Left: Interface "I_ASTNode"; Right: Interface "I_ASTNode"): Interface I_ASTNode
+    var
+        MinusInstance: codeunit ASTMinus;
+    begin
+        MinusInstance.InitMinus(Left, Right);
+        exit(MinusInstance);
+    end;
+
+    local procedure CreateASTMultiply(Left: Interface "I_ASTNode"; Right: Interface "I_ASTNode"): Interface I_ASTNode
+    var
+        MultiplyInstance: codeunit ASTMultiply;
+    begin
+        MultiplyInstance.InitMultiply(left, right);
+        exit(MultiplyInstance);
+    end;
+
+    local procedure CreateASTDivide(Left: Interface "I_ASTNode"; Right: Interface "I_ASTNode"): Interface I_ASTNode
+    var
+        DivideInstance: codeunit ASTDivide;
+    begin
+        DivideInstance.InitDivide(left, right);
+        exit(DivideInstance);
+    end;
+
     local procedure Expr(var ASTNode: Interface "I_ASTNode"; var ErrorMsg: Text): Boolean
     var
         LeftNode: Interface I_ASTNode;
         RightNode: Interface I_ASTNode;
-        PlusNode: Codeunit "ASTPlus";
-        MinusNode: Codeunit "ASTMinus";
     begin
         if not Term(LeftNode, ErrorMsg) then
             exit(false);
 
         while CurrentToken.TokenType in [Enum::TokenType::ADD, Enum::TokenType::MINUS] do begin
-            Message('Building node: %1', CurrentToken.TokenType);
             if CurrentToken.TokenType = Enum::TokenType::ADD then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Term(RightNode, ErrorMsg) then
                     exit(false);
-                PlusNode.InitPlus(LeftNode, RightNode);
-                LeftNode := PlusNode;
+                LeftNode := CreateASTPlus(LeftNode, RightNode);
             end else if CurrentToken.TokenType = Enum::TokenType::MINUS then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Term(RightNode, ErrorMsg) then
                     exit(false);
-                MinusNode.InitMinus(LeftNode, RightNode);
-                LeftNode := MinusNode;
+                LeftNode := CreateASTMinus(LeftNode, RightNode);
+            end else if CurrentToken.TokenType = Enum::TokenType::MULTIPLY then begin
+                CurrentToken := Lexer.GetNextToken();
+                if not Term(RightNode, ErrorMsg) then
+                    exit(false);
+                LeftNode := CreateASTMultiply(LeftNode, RightNode);
+            end else if CurrentToken.TokenType = Enum::TokenType::DIVISION then begin
+                CurrentToken := Lexer.GetNextToken();
+                if not Term(RightNode, ErrorMsg) then
+                    exit(false);
+                LeftNode := CreateASTDivide(LeftNode, RightNode);
             end;
         end;
+
         ASTNode := LeftNode;
         exit(true);
     end;
+
+
 
     //MULTI
 

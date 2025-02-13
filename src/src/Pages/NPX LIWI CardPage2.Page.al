@@ -55,7 +55,7 @@ page 50202 "NPX LIWI CardPage2"
 
                         if Succes then begin
                             LocalResult := Calculator.GetResult();
-                            Rec.Result := Format(LocalResult, 0, '<Integer>'); //TODO: ta bort mellanslag
+                            Rec.Result := Format(LocalResult); //TODO: ta bort mellanslag , 0, '<Integer>'
                             Rec.Error := '';
                         end else begin
                             LocalError := Calculator.GetErrorText();

@@ -61,6 +61,14 @@ codeunit 50208 MathParser
         exit(DivideInstance);
     end;
 
+    local procedure CreateASTExponent(Left: Interface I_ASTNode; Right: Interface I_ASTNode): Interface I_ASTNode
+    var
+        ExponentInstance: codeunit "AST Exponent";
+    begin
+        ExponentInstance.InitExponent(left, right);
+        exit(ExponentInstance);
+    end;
+
     local procedure Expr(var ASTNode: Interface "I_ASTNode"; var ErrorMsg: Text): Boolean
     var
         LeftNode: Interface I_ASTNode;
@@ -80,16 +88,16 @@ codeunit 50208 MathParser
                 if not Term(RightNode, ErrorMsg) then
                     exit(false);
                 LeftNode := CreateASTMinus(LeftNode, RightNode);
-            end else if CurrentToken.TokenType = Enum::TokenType::MULTIPLY then begin
-                CurrentToken := Lexer.GetNextToken();
-                if not Term(RightNode, ErrorMsg) then
-                    exit(false);
-                LeftNode := CreateASTMultiply(LeftNode, RightNode);
-            end else if CurrentToken.TokenType = Enum::TokenType::DIVISION then begin
-                CurrentToken := Lexer.GetNextToken();
-                if not Term(RightNode, ErrorMsg) then
-                    exit(false);
-                LeftNode := CreateASTDivide(LeftNode, RightNode);
+                // end else if CurrentToken.TokenType = Enum::TokenType::MULTIPLY then begin
+                //     CurrentToken := Lexer.GetNextToken();
+                //     if not Term(RightNode, ErrorMsg) then
+                //         exit(false);
+                //     LeftNode := CreateASTMultiply(LeftNode, RightNode);
+                // end else if CurrentToken.TokenType = Enum::TokenType::DIVISION then begin
+                //     CurrentToken := Lexer.GetNextToken();
+                //     if not Term(RightNode, ErrorMsg) then
+                //         exit(false);
+                //     LeftNode := CreateASTDivide(LeftNode, RightNode);
             end;
         end;
 
@@ -117,20 +125,21 @@ codeunit 50208 MathParser
                 CurrentToken := Lexer.GetNextToken();
                 if not Factor(RightNode, ErrorMsg) then
                     exit(false);
-                MultiplyNode.InitMultiply(LeftNode, RightNode);
-                LeftNode := MultiplyNode;
+                LeftNode := CreateASTMultiply(LeftNode, RightNode);
+                // MultiplyNode.InitMultiply(LeftNode, RightNode);
+                // LeftNode := MultiplyNode;
             end else if CurrentToken.TokenType = Enum::TokenType::DIVISION then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Factor(RightNode, ErrorMsg) then
                     exit(false);
-                DivideNode.InitDivide(LeftNode, RightNode);
-                LeftNode := DivideNode;
+                LeftNode := CreateASTDivide(LeftNode, RightNode);
             end else if CurrentToken.TokenType = Enum::TokenType::EXPONENT then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Factor(RightNode, ErrorMsg) then
                     exit(false);
-                ExponentNode.InitExponent(LeftNode, RightNode);
-                LeftNode := ExponentNode;
+                LeftNode := CreateASTExponent(LeftNode, RightNode);
+                // ExponentNode.InitExponent(LeftNode, RightNode);
+                // LeftNode := ExponentNode;
             end;
         end;
         ASTNode := LeftNode;
@@ -142,7 +151,16 @@ codeunit 50208 MathParser
         LeafNode: Codeunit "AST Leaf";
         ExprNode: Interface I_ASTNode;
         NumberValue: Decimal;
+        NegativeOne: Codeunit "AST Leaf";
     begin
+        if CurrentToken.TokenType = Enum::TokenType::MINUS then begin
+            CurrentToken := Lexer.GetNextToken();
+            if not Factor(ASTNode, ErrorMsg) then
+                exit(false);
+            NegativeOne.InitLeaf(-1);
+            ASTNode := CreateASTMultiply(NegativeOne, ASTNode);
+            exit(true);
+        end;
         if CurrentToken.TokenType = Enum::TokenType::NUMBER then begin
             if not TryParseDecimal(CurrentToken.Value, NumberValue) then begin
                 ErrorMsg := 'Ogiltigt nummerformat: ' + CurrentToken.Value;

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="Notes Handling">
+    <body>
+      <group id="body">
+        <trans-unit id="PageExtension 2527411841 - NamedType 3726724574" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2527411841">
+          <source>Excel is successfully imported.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - NamedType ExcelImportSucess</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2527411841 - NamedType 511806700" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2527411841">
+          <source>No Excel file found!</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - NamedType NoFileFoundMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2527411841 - NamedType 4273853447" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2527411841">
+          <source>Please Choose the Excel file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - NamedType UploadExcelMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2527411841 - Action 2983487766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Import Notes From Excel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - Action ImportNotesFMExcel - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

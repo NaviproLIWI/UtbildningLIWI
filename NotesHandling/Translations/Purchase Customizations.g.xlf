@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="Purchase Customizations">
+    <body>
+      <group id="body">
+        <trans-unit id="Page 3197816489 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Matrix Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3294270728 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Assigned User ID field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Assigned User ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3792369418 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Buy-from Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Description field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3469770434 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date you expect the items to be available in your warehouse.if you leave the field blank, it will be calculated as follows: Planned Receipt Date + Safety Lead Time + Inbound Warehouse Handling Time = Expected Receipt Date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Expected Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 120208962 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Delivery Drop Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control K3PFDelivery Drop Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2533115834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Season Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control K3PFSeason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for the location where you want the items to be placed when they are received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of a general ledger account, item, additional cost, or fixed asset, depending on what you selected in the Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2334596303 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Confirmed field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX Confirmed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 4167406314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX Delivery Information - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 1417388081 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Invoice field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX Invoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3907712897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the K3PFProduce-at Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX K3PFProduce-at Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 12613132 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the External Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC External Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 141372024 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line Amount field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Line Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3065159740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Outstanding Quantity field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Outstanding Qty - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 1293749394 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Qty. to Invoice field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Qty. to Invoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3745714152 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity of items that remains to be received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Qty. to Receive - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 287558319 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity that should be received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3214788244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Quantity Invoiced field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Quantity Invoiced - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2073202126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Quantity Received field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX PC Matrix Quantity Received - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2298568459 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Sales No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX Sales No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3611284719 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sell-to Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX Sell-to Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 4117711006 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control NPX Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2632124822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Order Date field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Order Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3203290938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Note of Goods field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control PEB Note of Goods - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 1623058472 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Planned Receipt Date field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Planned Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 851830778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related production order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Prod. Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 429198581 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Promised Receipt Date field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Promised Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 1602222300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Requested Receipt Date field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Requested Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 381961415 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Unit Cost field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Unit Cost - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 2385270358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Unit of Measure Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Unit of Measure Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Variant Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Action 917700362 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Developer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Action Developer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Action 1478965792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Action Update Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3197816489 - Action 1478965792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NPXPCPurch.OrderMatrixLines - Action Update Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 2632054819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Assigned User ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Assigned User ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 1041897254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Unit Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC First Unit Cost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 1659302170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>First Variant Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix FirstVariantCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 141372024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Line Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix Line Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 565360074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Outstanding Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix Outstanding Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 1293749394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Qty. to Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix Qty. to Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 3745714152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Qty. to Receive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix Qty. to Receive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 287558319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 3367183348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Quantity Invoiced</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix QuantityInvoiced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 1505821230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Quantity Received</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC Matrix QuantityReceived - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686984020 - Field 2668854989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Note of Goods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension NPX PC Purchase Line - Field NPX PC PEB Note of Goods - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

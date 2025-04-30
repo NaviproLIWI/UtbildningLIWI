@@ -13,12 +13,18 @@ codeunit 50207 "ASTDivide" implements I_ASTNode
     end;
 
     procedure Eval(): Decimal
+    var
+        Denom: Decimal;
     begin
+        Denom := RightNode.Eval();
+        if Denom = 0 then
+            exit(0);
+        exit(LeftNode.Eval() / Denom);
 
-        if RightNode.Eval() = 0 then
-            Error('Division med noll är inte tillåten.');
+        // if RightNode.Eval() = 0 then
+        //     Error('Division med noll är inte tillåten.');
 
-        exit(LeftNode.Eval() / RightNode.Eval());
+        // exit(LeftNode.Eval() / RightNode.Eval());
     end;
 
     procedure ToString(): Text

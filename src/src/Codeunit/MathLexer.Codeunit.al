@@ -22,78 +22,110 @@ codeunit 50201 "Math Lexer"
         TokenRec: Record MathToken;
         TokenManager: Codeunit "Math Token Manager";
     begin
-        while CurrentChar <> ' ' do begin
-            if CurrentChar = ' ' then begin
-                Advance();
+        // while CurrentChar <> ' ' do begin
+        //     if CurrentChar = ' ' then begin
+        //         Advance();
 
-            end else begin
-                if IsDigit(CurrentChar) then
-                    exit(CreateNumberToken());
+        //     end else begin
 
-                // if IsDigit(CurrentChar) or (CurrentChar = ',') or (CurrentChar = '.') then
-                //     exit(CreateNumberToken());
-
-                case CurrentChar of
-                    '+':
-                        begin
-                            Advance();
-                            TokenRec.Init();
-                            TokenRec.TokenType := Enum::TokenType::ADD;
-                            TokenRec.Value := '+';
-                            exit(TokenRec);
-                        end;
-                    '-':
-                        begin
-                            Advance();
-                            TokenRec.Init();
-                            TokenRec.TokenType := Enum::TokenType::MINUS;
-                            TokenRec.Value := '-';
-                            exit(TokenRec);
-                        end;
-                    '*':
-                        begin
-                            Advance();
-                            TokenRec.Init();
-                            TokenRec.TokenType := Enum::TokenType::MULTIPLY;
-                            TokenRec.Value := '*';
-                            exit(TokenRec);
-                        end;
-                    '/':
-                        begin
-                            Advance();
-                            TokenRec.Init();
-                            TokenRec.TokenType := Enum::TokenType::DIVISION;
-                            TokenRec.Value := '/';
-                            exit(TokenRec);
-                        end;
-                    '(':
-                        begin
-                            Advance();
-                            TokenRec.Init();
-                            TokenRec.TokenType := Enum::TokenType::LBRACE;
-                            TokenRec.Value := '(';
-                            exit(TokenRec);
-                        end;
-                    ')':
-                        begin
-                            Advance();
-                            TokenRec.Init();
-                            TokenRec.TokenType := Enum::TokenType::RBRACE;
-                            TokenRec.Value := ')';
-                            exit(TokenRec);
-                        end;
-                    else
-                        Error('Unknown character: %1', CurrentChar);
-                // exit(TokenRec);
-                end;
-
-            end
+        // Om vi har gått utanför strängens längd, returnera EOF
+        if Pos > StrLen(Text) then begin
+            TokenRec.Init();
+            TokenRec.TokenType := Enum::TokenType::EOF;
+            TokenRec.Value := '';
+            exit(TokenRec);
         end;
-        TokenRec.Init();
-        TokenRec.TokenType := Enum::TokenType::EOF;
-        TokenRec.Value := '';
-        exit(TokenRec);
+
+        // Hoppa över eventuella mellanslag
+        while (Pos <= StrLen(Text)) and (Text[Pos] = ' ') do begin
+            Advance();
+        end;
+
+        // Kontrollera igen om vi nått slutet efter att ha hoppat över mellanslag
+        if Pos > StrLen(Text) then begin
+            TokenRec.Init();
+            TokenRec.TokenType := Enum::TokenType::EOF;
+            TokenRec.Value := '';
+            exit(TokenRec);
+        end;
+
+        if IsDigit(CurrentChar) then
+            exit(CreateNumberToken());
+
+        // if IsDigit(CurrentChar) or (CurrentChar = ',') or (CurrentChar = '.') then
+        //     exit(CreateNumberToken());
+
+        case CurrentChar of
+            '+':
+                begin
+                    Advance();
+                    TokenRec.Init();
+                    TokenRec.TokenType := Enum::TokenType::ADD;
+                    TokenRec.Value := '+';
+                    exit(TokenRec);
+                end;
+            '-':
+                begin
+                    Advance();
+                    TokenRec.Init();
+                    TokenRec.TokenType := Enum::TokenType::MINUS;
+                    TokenRec.Value := '-';
+                    exit(TokenRec);
+                end;
+            '*':
+                begin
+                    Advance();
+                    TokenRec.Init();
+                    TokenRec.TokenType := Enum::TokenType::MULTIPLY;
+                    TokenRec.Value := '*';
+                    exit(TokenRec);
+                end;
+            '/':
+                begin
+                    Advance();
+                    TokenRec.Init();
+                    TokenRec.TokenType := Enum::TokenType::DIVISION;
+                    TokenRec.Value := '/';
+                    exit(TokenRec);
+                end;
+            '(':
+                begin
+                    Advance();
+                    TokenRec.Init();
+                    TokenRec.TokenType := Enum::TokenType::LBRACE;
+                    TokenRec.Value := '(';
+                    exit(TokenRec);
+                end;
+            ')':
+                begin
+                    Advance();
+                    TokenRec.Init();
+                    TokenRec.TokenType := Enum::TokenType::RBRACE;
+                    TokenRec.Value := ')';
+                    exit(TokenRec);
+                end;
+            else
+         // Error('Unknown character: %1', CurrentChar);
+         // exit(TokenRec);
+         begin
+                // Returnera ett token med typen INVALID istället för att kasta ett fel.
+                TokenRec.Init();
+                TokenRec.TokenType := Enum::TokenType::INVALID;
+                TokenRec.Value := CurrentChar;
+                Advance();
+                exit(TokenRec);
+            end;
+
+        end;
     end;
+    // end;
+    //         TokenRec.Init();
+    //         TokenRec.TokenType := Enum::TokenType::EOF;
+    //         TokenRec.Value := '';
+    //         exit(TokenRec);
+    //     end;
+    // end;
+
 
 
     local procedure Advance()

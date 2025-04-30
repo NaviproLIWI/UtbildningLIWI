@@ -105,29 +105,23 @@ codeunit 50208 MathParser
         exit(true);
     end;
 
-
-
-    //MULTI
-
     local procedure Term(var ASTNode: Interface "I_ASTNode"; var ErrorMsg: Text): Boolean
     var
         LeftNode: Interface I_ASTNode;
         RightNode: Interface I_ASTNode;
-        MultiplyNode: Codeunit "ASTMultiply";
-        DivideNode: Codeunit "ASTDivide";
-        ExponentNode: Codeunit "AST Exponent";
     begin
         if not Factor(LeftNode, ErrorMsg) then
             exit(false);
 
-        while CurrentToken.TokenType in [Enum::TokenType::MULTIPLY, Enum::TokenType::DIVISION, Enum::TokenType::EXPONENT] do begin
+        while true do begin
+            // Debug: skriv ut aktuell token
+            // Message('Term: CurrentToken = %1, Value = %2', Format(CurrentToken.TokenType), CurrentToken.Value);
+
             if CurrentToken.TokenType = Enum::TokenType::MULTIPLY then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Factor(RightNode, ErrorMsg) then
                     exit(false);
                 LeftNode := CreateASTMultiply(LeftNode, RightNode);
-                // MultiplyNode.InitMultiply(LeftNode, RightNode);
-                // LeftNode := MultiplyNode;
             end else if CurrentToken.TokenType = Enum::TokenType::DIVISION then begin
                 CurrentToken := Lexer.GetNextToken();
                 if not Factor(RightNode, ErrorMsg) then
@@ -138,13 +132,74 @@ codeunit 50208 MathParser
                 if not Factor(RightNode, ErrorMsg) then
                     exit(false);
                 LeftNode := CreateASTExponent(LeftNode, RightNode);
-                // ExponentNode.InitExponent(LeftNode, RightNode);
-                // LeftNode := ExponentNode;
+            end
+            // Om nästa token inleder en ny faktor (implicit multiplikation)
+            else if //(CurrentToken.TokenType = Enum::TokenType::MINUS) or
+                    (CurrentToken.TokenType = Enum::TokenType::NUMBER) or
+                    (CurrentToken.TokenType = Enum::TokenType::LBRACE) then begin
+                if not Factor(RightNode, ErrorMsg) then
+                    exit(false);
+                LeftNode := CreateASTMultiply(LeftNode, RightNode);
+            end else begin
+                break;
             end;
         end;
+
         ASTNode := LeftNode;
         exit(true);
     end;
+
+
+
+
+    //MULTI
+
+    // local procedure Term(var ASTNode: Interface "I_ASTNode"; var ErrorMsg: Text): Boolean
+    // var
+    //     LeftNode: Interface I_ASTNode;
+    //     RightNode: Interface I_ASTNode;
+    //     MultiplyNode: Codeunit "ASTMultiply";
+    //     DivideNode: Codeunit "ASTDivide";
+    //     ExponentNode: Codeunit "AST Exponent";
+    // begin
+    //     if not Factor(LeftNode, ErrorMsg) then
+    //         exit(false);
+
+    //     while true do begin
+    //         // while CurrentToken.TokenType in [Enum::TokenType::MULTIPLY, Enum::TokenType::DIVISION, Enum::TokenType::EXPONENT] do begin
+    //         if CurrentToken.TokenType = Enum::TokenType::MULTIPLY then begin
+    //             CurrentToken := Lexer.GetNextToken();
+    //             if not Factor(RightNode, ErrorMsg) then
+    //                 exit(false);
+    //             LeftNode := CreateASTMultiply(LeftNode, RightNode);
+    //             // MultiplyNode.InitMultiply(LeftNode, RightNode);
+    //             // LeftNode := MultiplyNode;
+    //         end else if CurrentToken.TokenType = Enum::TokenType::DIVISION then begin
+    //             CurrentToken := Lexer.GetNextToken();
+    //             if not Factor(RightNode, ErrorMsg) then
+    //                 exit(false);
+    //             LeftNode := CreateASTDivide(LeftNode, RightNode);
+    //         end else if CurrentToken.TokenType = Enum::TokenType::EXPONENT then begin
+    //             CurrentToken := Lexer.GetNextToken();
+    //             if not Factor(RightNode, ErrorMsg) then
+    //                 exit(false);
+    //             LeftNode := CreateASTExponent(LeftNode, RightNode);
+    //             // ExponentNode.InitExponent(LeftNode, RightNode);
+    //             // LeftNode := ExponentNode;
+    //         end else if (CurrentToken.TokenType = Enum::TokenType::MINUS) or
+    //                     (CurrentToken.TokenType = Enum::TokenType::NUMBER) or
+    //                     (CurrentToken.TokenType = Enum::TokenType::LBRACE) then begin
+    //             if Factor(RightNode, ErrorMsg) then
+    //                 exit(false);
+    //             LeftNode := CreateASTMultiply(LeftNode, RightNode);
+    //             // end else begin
+    //             //     break;
+    //         end;
+    //     end;
+
+    //     ASTNode := LeftNode;
+    //     exit(true);
+    // end;
 
     local procedure Factor(var ASTNode: Interface "I_ASTNode"; var ErrorMsg: Text): Boolean
     var
@@ -153,6 +208,10 @@ codeunit 50208 MathParser
         NumberValue: Decimal;
         NegativeOne: Codeunit "AST Leaf";
     begin
+        if CurrentToken.TokenType = Enum::TokenType::INVALID then begin
+            ErrorMsg := 'Ogiltigt tecken: ' + CurrentToken.Value;
+            exit(false);
+        end;
         if CurrentToken.TokenType = Enum::TokenType::MINUS then begin
             CurrentToken := Lexer.GetNextToken();
             if not Factor(ASTNode, ErrorMsg) then

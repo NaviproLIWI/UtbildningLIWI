@@ -3,7 +3,7 @@
     "version": "0.2.0",
     "configurations": [
     {
-    "name": "Microsoft docker sandbox",
+    "name": "LIWI Sandbox",
     "request": "launch",
     "type": "al",
     "environmentType": "Sandbox",

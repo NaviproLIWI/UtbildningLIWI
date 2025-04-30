@@ -38,4 +38,8 @@ enum 50201 TokenType
     {
         Caption = '^';
     }
+    value(9; "INVALID")
+    {
+        Caption = 'INVALID';
+    }
 }

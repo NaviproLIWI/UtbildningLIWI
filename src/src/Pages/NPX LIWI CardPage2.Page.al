@@ -31,42 +31,84 @@ page 50202 "NPX LIWI CardPage2"
                     ToolTip = 'Specifies the value of the Text field.', Comment = '%';
                     Editable = true;
 
-                    trigger OnValidate()
-                    var
-                        Calculator: Codeunit Calculator;
-                        Succes: Boolean;
-                        LocalResult: Decimal;
-                        LocalError: Text[250];
-                    begin
-                        rec.Valid := true;
-                        rec.Error := '';
-                        rec.Result := '';
+                    // trigger OnValidate()
+                    // var
+                    //     Calculator: Codeunit Calculator;
+                    //     Succes: Boolean;
+                    //     LocalResult: Decimal;
+                    //     LocalError: Text[250];
+                    // begin
+                    //     rec.Valid := true;
+                    //     rec.Error := '';
+                    //     rec.Result := '';
 
-                        if rec.Text = '' then begin
-                            rec.Error := 'Inget uttryck angivet.';
-                            exit;
-                        end;
-
-
-
-                        // if Rec.Text <> '' then begin
-                        Calculator.SetText(rec.Text);
-                        Succes := Calculator.Execute();
-
-                        if Succes then begin
-                            LocalResult := Calculator.GetResult();
-                            Rec.Result := Format(LocalResult); //TODO: ta bort mellanslag , 0, '<Integer>'
-                            Rec.Error := '';
-                        end else begin
-                            LocalError := Calculator.GetErrorText();
-                            rec.Error := LocalError;
-                            Rec.Result := '';
-
-                        end;
-                        Rec.Modify(true);
+                    //     if rec.Text = '' then begin
+                    //         rec.Error := 'Inget uttryck angivet.';
+                    //         exit;
+                    //     end;
 
 
-                    end;
+
+                    //     // if Rec.Text <> '' then begin
+                    //     Calculator.SetText(rec.Text);
+                    //     Succes := Calculator.Execute();
+
+                    //     if Succes then begin
+                    //         LocalResult := Calculator.GetResult();
+                    //         Rec.Result := Format(LocalResult);//Format(LocalResult, 0, '<Integer>'); //TODO: ta bort mellanslag , 0, '<Integer>'
+                    //         Rec.Error := '';
+                    //     end else begin
+                    //         LocalError := Calculator.GetErrorText();
+                    //         rec.Error := LocalError;
+                    //         Rec.Result := '';
+
+                    //     end;
+                    //     Rec.Modify(true);
+
+
+                    // end;
+
+                    // trigger OnValidate()
+                    // var
+                    //     Calculator: Codeunit Calculator;
+                    //     Succes: Boolean;
+                    //     LocalResult: Decimal;
+                    //     LocalError: Text[250];
+                    //     TempStr: Text;
+                    // begin
+                    //     Rec.Valid := true;
+                    //     Rec.Error := '';
+                    //     Rec.Result := '';
+
+                    //     if Rec.Text = '' then begin
+                    //         Rec.Error := 'Inget uttryck angivet.';
+                    //         exit;
+                    //     end;
+
+                    //     Calculator.SetText(Rec.Text);
+                    //     Succes := Calculator.Execute();
+
+                    //     if Succes then begin
+                    //         LocalResult := Calculator.GetResult();
+                    //         // Använd den nya kodsnutten för att formatera resultatet utan mellanslag
+                    //         if LocalResult < 0 then begin
+                    //             TempStr := Format(Abs(LocalResult), 0, '<Integer>');
+                    //             TempStr := DelChr(TempStr, '=', ' ');
+                    //             Rec.Result := '-' + TempStr;
+                    //         end else begin
+                    //             TempStr := Format(LocalResult, 0, '<Integer>');
+                    //             TempStr := DelChr(TempStr, '=', ' ');
+                    //             Rec.Result := TempStr;
+                    //         end;
+                    //         Rec.Error := '';
+                    //     end else begin
+                    //         LocalError := Calculator.GetErrorText();
+                    //         Rec.Error := LocalError;
+                    //         Rec.Result := '';
+                    //     end;
+                    //      Rec.Modify(true);
+                    // end;
+
 
                 }
                 field(Valid; Rec.Valid)

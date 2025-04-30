@@ -1,4 +1,4 @@
-pageextension 50411 "NPX Customer Import" extends "Customer List"
+pageextension 50205 "NPX Customer Import" extends "Customer List"
 {
     actions
     {

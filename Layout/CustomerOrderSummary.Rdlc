@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-02T13:27:06.7215572Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-02T14:27:29.6315911Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -534,6 +534,13 @@
                   <TablixMembers>
                     <TablixMember>
                       <Group Name="Details" />
+                      <Visibility>
+                        <Hidden>=Not(
+  First(Fields!ShowDetailsParam.Value, "DataSet_Result")
+  And
+  Not(First(Fields!ShowSummariesOnlyParam.Value, "DataSet_Result"))
+)</Hidden>
+                      </Visibility>
                     </TablixMember>
                   </TablixMembers>
                 </TablixMember>

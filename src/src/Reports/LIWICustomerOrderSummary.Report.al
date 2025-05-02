@@ -76,14 +76,40 @@ report 50203 "LIWI Customer Order Summary"
         {
             area(Content)
             {
-                group(Options)
+                // group(Options)
+                // {
+                //     CaptionML = ENU = 'Options';
+                //     field(ShowLines; ShowLines)
+                //     {
+                //         ApplicationArea = All;
+                //         CaptionML = ENU = 'Show Details';
+                //         ToolTipML = ENU = 'Include line details and summary';
+                //     }
+                // }
+                group(Filters)
+                {
+                    CaptionML = ENU = 'Filters';
+                    field(CustomerNo; CustomerNo)
+                    {
+                        ApplicationArea = All;
+                        CaptionML = ENU = 'Customer No.';
+                    }
+                }
+
+                group(ViewOptions)
                 {
                     CaptionML = ENU = 'Options';
-                    field(ShowLines; ShowLines)
+                    field(ShowDetails; ShowDetails)
                     {
                         ApplicationArea = All;
                         CaptionML = ENU = 'Show Details';
-                        ToolTipML = ENU = 'Include line details and summary';
+                        ToolTipML = ENU = 'Include sales line details';
+                    }
+                    field(ShowSummariesOnly; ShowSummariesOnly)
+                    {
+                        ApplicationArea = All;
+                        CaptionML = ENU = 'Show Summaries Only';
+                        ToolTipML = ENU = 'Hide details and show only summaries';
                     }
                 }
             }

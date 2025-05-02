@@ -6,9 +6,13 @@ report 50203 "LIWI Customer Order Summary"
 
     dataset
     {
+
         dataitem("Sales Header"; "Sales Header")
         {
-            column(SalesCustomerNo; "Sell-to Customer No.")
+            DataItemTableView = Sorting("No.");
+            RequestFilterFields = "Bill-to Customer No.", "No.", "Status";
+
+            column(CustomerNo; "Bill-to Customer No.")
             {
                 CaptionML = ENU = 'Customer No.';
             }
@@ -16,9 +20,13 @@ report 50203 "LIWI Customer Order Summary"
             {
                 CaptionML = ENU = 'Customer Name';
             }
-            column(SellToCountry; "Sell-to Country/Region Code")
+            column(Country; "Bill-to Country/Region Code")
             {
                 CaptionML = ENU = 'Country';
+            }
+            column(Filter; FilterText)
+            {
+                CaptionML = ENU = 'Filters';
             }
             column(OrderNo; "No.")
             {
@@ -31,7 +39,13 @@ report 50203 "LIWI Customer Order Summary"
 
             dataitem(SalesLine; "Sales Line")
             {
+                DataItemLink = "Document No." = field("No.");
+                DataItemTableView = Sorting("Line No.");
 
+                column(IncludeLines; ShowLines)
+                {
+                    CaptionML = ENU = 'Show Lines';
+                }
                 column(ItemNo; "No.")
                 {
                     CaptionML = ENU = 'Itemo No.';
@@ -53,35 +67,28 @@ report 50203 "LIWI Customer Order Summary"
         }
     }
 
-    // requestpage
-    // {
-    //     AboutTitle = 'Teaching tip title';
-    //     AboutText = 'Teaching tip content';
-    //     layout
-    //     {
-    //         area(Content)
-    //         {
-    //             group(GroupName)
-    //             {
-    //                 field(Name; SourceExpression)
-    //                 {
-
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     actions
-    //     {
-    //         area(processing)
-    //         {
-    //             action(LayoutName)
-    //             {
-
-    //             }
-    //         }
-    //     }
-    // }
+    requestpage
+    {
+        CaptionML = ENU = 'Selection';
+        AboutTitle = 'Teaching tip title';
+        AboutText = 'Teaching tip content';
+        layout
+        {
+            area(Content)
+            {
+                group(Options)
+                {
+                    CaptionML = ENU = 'Options';
+                    field(ShowLines; ShowLines)
+                    {
+                        ApplicationArea = All;
+                        CaptionML = ENU = 'Show Details';
+                        ToolTipML = ENU = 'Include line details and summary';
+                    }
+                }
+            }
+        }
+    }
 
     rendering
     {
@@ -102,4 +109,16 @@ report 50203 "LIWI Customer Order Summary"
         }
     }
 
+    var
+        ShowLines: Boolean;
+        CustomerNo: Code[20];
+
+        OrderNo: Code[20];
+        FilterText: Text[100];
+        ShowDetails: Boolean;
+        ShowSummariesOnly: Boolean;
+
+
+
 }
+

@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-02T14:27:29.6315911Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-05T07:42:17.2119061Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -536,7 +536,7 @@
                       <Group Name="Details" />
                       <Visibility>
                         <Hidden>=Not(
-  First(Fields!ShowDetailsParam.Value, "DataSet_Result")
+  First(Fields!ShowDetailsParam.Value,      "DataSet_Result")
   And
   Not(First(Fields!ShowSummariesOnlyParam.Value, "DataSet_Result"))
 )</Hidden>
@@ -618,7 +618,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.14458in</Top>
-              <Left>6.25in</Left>
+              <Left>5.98951in</Left>
               <Height>0.25in</Height>
               <Width>2in</Width>
               <ZIndex>1</ZIndex>
@@ -993,6 +993,12 @@ End Function
         </Field>
         <Field Name="OrderDate">
           <DataField>OrderDate</DataField>
+        </Field>
+        <Field Name="ShowDetailsParam">
+          <DataField>ShowDetailsParam</DataField>
+        </Field>
+        <Field Name="ShowSummariesOnlyParam">
+          <DataField>ShowSummariesOnlyParam</DataField>
         </Field>
         <Field Name="IncludeLines">
           <DataField>IncludeLines</DataField>

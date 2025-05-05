@@ -4,8 +4,10 @@ report 50203 "LIWI Customer Order Summary"
     ApplicationArea = All;
     DefaultRenderingLayout = RdlcLayout;
 
+
     dataset
     {
+
 
         dataitem("Sales Header"; "Sales Header")
         {
@@ -36,6 +38,14 @@ report 50203 "LIWI Customer Order Summary"
             {
                 CaptionML = ENU = 'Order Date';
             }
+            column(ShowDetailsParam; ShowDetails)
+            {
+                CaptionML = ENU = 'Show Details';
+            }
+            column(ShowSummariesOnlyParam; ShowSummariesOnly)
+            {
+                CaptionML = ENU = 'Show Summaries Only';
+            }
 
             dataitem(SalesLine; "Sales Line")
             {
@@ -63,58 +73,51 @@ report 50203 "LIWI Customer Order Summary"
                     CaptionML = ENU = 'Amount';
                 }
 
+
             }
+
         }
+
     }
+
 
     requestpage
     {
+
         CaptionML = ENU = 'Selection';
-        AboutTitle = 'Teaching tip title';
-        AboutText = 'Teaching tip content';
         layout
         {
             area(Content)
             {
-                // group(Options)
-                // {
-                //     CaptionML = ENU = 'Options';
-                //     field(ShowLines; ShowLines)
-                //     {
-                //         ApplicationArea = All;
-                //         CaptionML = ENU = 'Show Details';
-                //         ToolTipML = ENU = 'Include line details and summary';
-                //     }
-                // }
-                group(Filters)
-                {
-                    CaptionML = ENU = 'Filters';
-                    field(CustomerNo; CustomerNo)
-                    {
-                        ApplicationArea = All;
-                        CaptionML = ENU = 'Customer No.';
-                    }
-                }
 
                 group(ViewOptions)
                 {
-                    CaptionML = ENU = 'Options';
                     field(ShowDetails; ShowDetails)
                     {
                         ApplicationArea = All;
                         CaptionML = ENU = 'Show Details';
-                        ToolTipML = ENU = 'Include sales line details';
+                        ToolTipML = ENU = 'Include line details and summary';
                     }
                     field(ShowSummariesOnly; ShowSummariesOnly)
                     {
                         ApplicationArea = All;
                         CaptionML = ENU = 'Show Summaries Only';
-                        ToolTipML = ENU = 'Hide details and show only summaries';
+                        ToolTipML = ENU = 'Hide detail lines, show only summaries';
                     }
+
+
                 }
             }
         }
+
+        trigger OnOpenPage()
+        begin
+            ShowDetails := false;
+            ShowSummariesOnly := false;
+        end;
     }
+
+
 
     rendering
     {
@@ -138,11 +141,12 @@ report 50203 "LIWI Customer Order Summary"
     var
         ShowLines: Boolean;
         CustomerNo: Code[20];
-
         OrderNo: Code[20];
         FilterText: Text[100];
         ShowDetails: Boolean;
         ShowSummariesOnly: Boolean;
+
+
 
 
 

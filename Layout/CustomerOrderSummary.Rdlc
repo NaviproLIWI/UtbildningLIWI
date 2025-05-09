@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-05T07:42:17.2119061Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-08T06:55:25.0342397Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -578,7 +578,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Customter Orders</Value>
+                      <Value>Customer Orders</Value>
                       <Style>
                         <FontSize>18pt</FontSize>
                       </Style>

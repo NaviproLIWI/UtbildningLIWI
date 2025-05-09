@@ -4,76 +4,91 @@ report 50204 UtmaningCustomerOrderSummary
     ApplicationArea = All;
     DefaultRenderingLayout = RdlcLayout;
 
+
+
+
+
     dataset
     {
-        dataitem("Sales Header"; "Sales Header")
+        dataitem(Customer; Customer)
         {
-            column(CustomerNo; "Bill-to Customer No.")
+            RequestFilterFields = "No.";
+            DataItemTableView = Sorting("No.");
+
+
+            column(CustomerNo; "No.")
             {
                 CaptionML = ENU = 'Customer No.';
             }
-            column(SellToName; "Sell-to Customer Name")
+            column(CustomerName; Name)
             {
                 CaptionML = ENU = 'Customer Name';
             }
-            column(Country; "Bill-to Country/Region Code")
+            column(Country; "Country/Region Code")
             {
                 CaptionML = ENU = 'Country';
             }
-            column(Filter; FilterText)
+            column(Filters; FilterText)
             {
                 CaptionML = ENU = 'Filters';
             }
-            column(OrderNo; "No.")
+
+            dataitem("Sales Header"; "Sales Header")
             {
-                CaptionML = ENU = 'Order No.';
-            }
-            column(OrderDate; "Order Date")
-            {
-                CaptionML = ENU = 'Order Date';
-            }
-            column(ShowDetailsParam; ShowDetails)
-            {
-                CaptionML = ENU = 'Show Details';
-            }
-            column(ShowSummariesOnlyParam; ShowSummariesOnly)
-            {
-                CaptionML = ENU = 'Show Summaries Only';
+                DataItemLink = "Bill-to Customer No." = field("No.");
+                DataItemTableView = Sorting("No.");
+
+                column(OrderNo; "No.")
+                {
+                    CaptionML = ENU = 'Order No.';
+                }
+                column(OrderDate; "Order Date")
+                {
+                    CaptionML = ENU = 'Order Date';
+                }
+
+                dataitem(SalesLine; "Sales Line")
+                {
+                    DataItemLink = "Document No." = field("No.");
+                    DataItemTableView = Sorting("Line No.");
+
+                    column(IncludeLines; ShowLines)
+                    {
+                        CaptionML = ENU = 'Show Lines';
+                    }
+                    column(ItemNo; "No.")
+                    {
+                        CaptionML = ENU = 'Itemo No.';
+                    }
+                    column(Description; "Description")
+                    {
+                        CaptionML = ENU = 'Description';
+                    }
+                    column(Quantity; "Quantity")
+                    {
+                        CaptionML = ENU = 'Quantity';
+                    }
+                    column(Amount; "Line Amount")
+                    {
+                        CaptionML = ENU = 'Amount';
+                    }
+
+
+                }
+
+
             }
 
+            trigger OnPreDataItem()
+            begin
+                FilterText := Customer.GetFilter("No.");
+            end;
 
         }
 
     }
-}
-    
-    requestpage
-    {
-        AboutTitle = 'Teaching tip title';
-        AboutText = 'Teaching tip content';
-        layout
-        {
-            area(Content)
-            {
-                group(GroupName)
-                {
-                    
-                }
-            }
-        }
-    
-        actions
-        {
-            area(processing)
-            {
-                action(LayoutName)
-                {
-                    
-                }
-            }
-        }
-    }
-    
+
+
     rendering
     {
         layout(ExcelLayout)
@@ -92,11 +107,13 @@ report 50204 UtmaningCustomerOrderSummary
             LayoutFile = 'Layout2/CustomerOrderSummary.docx';
         }
     }
-    
+
     var
         ShowLines: Boolean;
+        CustomerNo: Code[20];
+        OrderNo: Code[20];
+        FilterText: Text[100];
         ShowDetails: Boolean;
         ShowSummariesOnly: Boolean;
-        FilterText: Text[250];
 
 }

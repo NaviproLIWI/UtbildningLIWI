@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "87a97a4e-39c0-4cc8-bc8c-0c0a72ee0c08",
+      "publisher": "K3 Business Technology Group",
+      "name": "K3 Cargo Management",
+      "version": "0.0.0.0"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "25.0.0.0",

@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-12T09:36:06.5599614Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-15T08:51:50.1907364Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -30,16 +30,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.875in</Width>
+                  <Width>1.21354in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.6875in</Width>
+                  <Width>2.02604in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.17826in</Width>
+                  <Width>1.5168in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.1875in</Width>
+                  <Width>1.52604in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -446,21 +446,20 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox7">
+                        <Textbox Name="txtCustName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!CustomerName.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Visibility>
                             <Hidden>true</Hidden>
                           </Visibility>
@@ -471,7 +470,6 @@
                             </Border>
                             <TopBorder>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Style>Solid</Style>
@@ -486,21 +484,20 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox8">
+                        <Textbox Name="txtGroupPage">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Code.GetGroupPage(Fields!CustomerNo.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox8</rd:DefaultName>
                           <Visibility>
                             <Hidden>true</Hidden>
                           </Visibility>
@@ -511,7 +508,6 @@
                             </Border>
                             <TopBorder>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Style>Solid</Style>
@@ -704,203 +700,36 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
+                    <TablixMember />
                     <TablixMember>
-                      <TablixHeader>
-                        <Size>1.33333in</Size>
-                        <CellContents>
-                          <Textbox Name="CustomerNo">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Customer No</Value>
-                                    <Style>
-                                      <FontSize>11pt</FontSize>
-                                      <FontWeight>Bold</FontWeight>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>CustomerNo</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <TopBorder>
-                                <Style>None</Style>
-                                <Width>1pt</Width>
-                              </TopBorder>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember />
-                      </TablixMembers>
-                      <KeepWithGroup>After</KeepWithGroup>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
-                    </TablixMember>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>1.33333in</Size>
-                        <CellContents>
-                          <Textbox Name="Textbox95">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!CustomerNo.Value</Value>
-                                    <Style />
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Textbox95</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <TopBorder>
-                                <Style>Solid</Style>
-                              </TopBorder>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
+                      <Group Name="OrderNo">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!OrderNo.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!OrderNo.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="OrderNo">
-                            <GroupExpressions>
-                              <GroupExpression>=Fields!OrderNo.Value</GroupExpression>
-                            </GroupExpressions>
-                          </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!OrderNo.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
-                          <TablixMembers>
-                            <TablixMember>
-                              <Group Name="Details" />
-                            </TablixMember>
-                          </TablixMembers>
+                          <Group Name="Details" />
                         </TablixMember>
                       </TablixMembers>
                     </TablixMember>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>1.33333in</Size>
-                        <CellContents>
-                          <Textbox Name="txtCustName">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!CustomerName.Value</Value>
-                                    <Style />
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <Visibility>
-                              <Hidden>true</Hidden>
-                            </Visibility>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <TopBorder>
-                                <Style>Solid</Style>
-                              </TopBorder>
-                              <BottomBorder>
-                                <Style>Solid</Style>
-                              </BottomBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                    </TablixMember>
-                    <TablixMember>
-                      <TablixHeader>
-                        <Size>1.33333in</Size>
-                        <CellContents>
-                          <Textbox Name="Textbox96">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value />
-                                    <Style />
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Textbox96</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>None</Style>
-                              </Border>
-                              <TopBorder>
-                                <Color>Black</Color>
-                                <Style>Solid</Style>
-                              </TopBorder>
-                              <BottomBorder>
-                                <Style>None</Style>
-                              </BottomBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                    </TablixMember>
+                    <TablixMember />
+                    <TablixMember />
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>1.42708in</Top>
+            <Top>0.86458in</Top>
             <Left>0.70068in</Left>
             <Height>1.18262in</Height>
-            <Width>6.26159in</Width>
+            <Width>6.28243in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -958,7 +787,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!OrderDate.Value, "DataSet_Result")</Value>
+                      <Value>=Format(Today(), "yyyy\-MM\-dd")</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -966,9 +795,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.11567in</Top>
-              <Left>5.57465in</Left>
+              <Left>6.47158in</Left>
               <Height>0.25in</Height>
-              <Width>2in</Width>
+              <Width>0.97917in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -987,7 +816,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Page: " &amp; Globals!PageNumber</Value>
+                      <Value>=ReportItems!txtGroupPage.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1129,7 +958,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>2.49273cm</Top>
+              <Top>2.45745cm</Top>
               <Left>4.88889cm</Left>
               <Height>0.6cm</Height>
               <Width>4.88125cm</Width>
@@ -1235,7 +1064,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Page: " &amp; Globals!PageNumber</Value>
+                      <Value>=ReportItems!txtGroupPage.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1308,6 +1137,19 @@ Public Function BlankNegAndZero(ByVal Value As Decimal)
         Return ""
     end if
     Return Value
+End Function
+
+Shared PrevCust As String = ""
+Shared CurrPage As Integer = 0
+
+Function GetGroupPage(ByVal CustKey As String) As Integer
+    If CustKey &lt;&gt; PrevCust Then
+        PrevCust = CustKey
+        CurrPage = 1
+    Else
+        CurrPage = CurrPage + 1
+    End If
+    Return CurrPage
 End Function
 </Code>
   <EmbeddedImages>

@@ -1,0 +1,13 @@
+{
+
+"appDependencyProbingPaths": [
+    {
+      "repo": "https://github.com/NaviProAB/AnywareRetail",
+      "version": "latest",
+      "release_status": "release",
+      "authTokenSecret": "GHTOKENWORKFLOW",
+      "projects": "*"
+    }
+]
+
+}

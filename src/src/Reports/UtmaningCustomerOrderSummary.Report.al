@@ -18,7 +18,9 @@ report 50204 UtmaningCustomerOrderSummary
 
             column(CustomerNo; "No.")
             {
+
                 CaptionML = ENU = 'Customer No.';
+
             }
             column(CustomerName; Name)
             {

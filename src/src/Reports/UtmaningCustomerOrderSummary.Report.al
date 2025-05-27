@@ -5,9 +5,6 @@ report 50204 UtmaningCustomerOrderSummary
     DefaultRenderingLayout = RdlcLayout;
 
 
-
-
-
     dataset
     {
         dataitem(Customer; Customer)
@@ -57,6 +54,7 @@ report 50204 UtmaningCustomerOrderSummary
                     column(IncludeLines; ShowLines)
                     {
                         CaptionML = ENU = 'Show Lines';
+
                     }
                     column(ItemNo; "No.")
                     {
@@ -74,6 +72,10 @@ report 50204 UtmaningCustomerOrderSummary
                     {
                         CaptionML = ENU = 'Amount';
                     }
+                    column(Exit_Point; Test)
+                    {
+                        CaptionML = ENU = 'Test';
+                    }
 
 
                 }
@@ -84,6 +86,24 @@ report 50204 UtmaningCustomerOrderSummary
             trigger OnPreDataItem()
             begin
                 FilterText := Customer.GetFilter("No.");
+            end;
+
+            trigger OnAfterGetRecord()
+            begin
+                T.SetLanguage('SVE', CurrReport.ObjectId(false)); //Måste köras innan man sätter X-funktionen
+
+                T.x('Customer Name');
+                T.x('Country');
+                T.x('Filters');
+                T.x('Order No.');
+                T.x('Order Date');
+                T.x('Show Lines');
+                T.x('Itemo No.');
+                T.x('Description');
+                T.x('Quantity');
+                T.x('Amount');
+                T.x('Test');
+
             end;
 
         }
@@ -111,11 +131,16 @@ report 50204 UtmaningCustomerOrderSummary
     }
 
     var
+        T2: Record "PEB Translation Texts-2" temporary;
+        T: Record "PEB Document Translation" temporary;
+        docMgt: Codeunit "PEB Document Text Mgt.";
         ShowLines: Boolean;
         CustomerNo: Code[20];
         OrderNo: Code[20];
         FilterText: Text[100];
         ShowDetails: Boolean;
         ShowSummariesOnly: Boolean;
+        Test: Text[100];
+
 
 }

@@ -18,6 +18,7 @@ tableextension 50201 "NPX LIWI Test Sales Line" extends "Sales Line"
         field(50202; "Test Code"; Code[20])
         {
             Caption = 'Test Code';
+            TableRelation = "Sales Header"."Document Type";
 
         }
         // Add changes to table fields here

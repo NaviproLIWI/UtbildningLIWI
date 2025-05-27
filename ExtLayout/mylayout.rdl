@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2025-05-27T13:11:21.9807364Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>a7050be0-73ef-4e9a-a990-733dff8783bd</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>5.85417in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <PageHeader>
+          <Height>2.07292in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!Test_Code_Header.Value, "DataSet_Result")</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.17708in</Top>
+              <Left>0.33208in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Picture">
+          <DataField>Picture</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="Header00">
+          <DataField>Header00</DataField>
+        </Field>
+        <Field Name="DataArray">
+          <DataField>DataArray</DataField>
+        </Field>
+        <Field Name="Header01">
+          <DataField>Header01</DataField>
+        </Field>
+        <Field Name="ShowWorkDescription">
+          <DataField>ShowWorkDescription</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine1">
+          <DataField>EmailBodyTextLine1</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine2">
+          <DataField>EmailBodyTextLine2</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine3">
+          <DataField>EmailBodyTextLine3</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine4">
+          <DataField>EmailBodyTextLine4</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine5">
+          <DataField>EmailBodyTextLine5</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine6">
+          <DataField>EmailBodyTextLine6</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine7">
+          <DataField>EmailBodyTextLine7</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine8">
+          <DataField>EmailBodyTextLine8</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine9">
+          <DataField>EmailBodyTextLine9</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine10">
+          <DataField>EmailBodyTextLine10</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine11">
+          <DataField>EmailBodyTextLine11</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine12">
+          <DataField>EmailBodyTextLine12</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine13">
+          <DataField>EmailBodyTextLine13</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine14">
+          <DataField>EmailBodyTextLine14</DataField>
+        </Field>
+        <Field Name="EmailBodyTextLine15">
+          <DataField>EmailBodyTextLine15</DataField>
+        </Field>
+        <Field Name="Line00">
+          <DataField>Line00</DataField>
+        </Field>
+        <Field Name="Line01">
+          <DataField>Line01</DataField>
+        </Field>
+        <Field Name="Column01">
+          <DataField>Column01</DataField>
+        </Field>
+        <Field Name="Column02">
+          <DataField>Column02</DataField>
+        </Field>
+        <Field Name="Column03">
+          <DataField>Column03</DataField>
+        </Field>
+        <Field Name="Column04">
+          <DataField>Column04</DataField>
+        </Field>
+        <Field Name="Column05">
+          <DataField>Column05</DataField>
+        </Field>
+        <Field Name="Column06">
+          <DataField>Column06</DataField>
+        </Field>
+        <Field Name="Column07">
+          <DataField>Column07</DataField>
+        </Field>
+        <Field Name="Column08">
+          <DataField>Column08</DataField>
+        </Field>
+        <Field Name="Column09">
+          <DataField>Column09</DataField>
+        </Field>
+        <Field Name="Column10">
+          <DataField>Column10</DataField>
+        </Field>
+        <Field Name="Column11">
+          <DataField>Column11</DataField>
+        </Field>
+        <Field Name="Column12">
+          <DataField>Column12</DataField>
+        </Field>
+        <Field Name="Column13">
+          <DataField>Column13</DataField>
+        </Field>
+        <Field Name="Column14">
+          <DataField>Column14</DataField>
+        </Field>
+        <Field Name="Column15">
+          <DataField>Column15</DataField>
+        </Field>
+        <Field Name="ItemTariffNo">
+          <DataField>ItemTariffNo</DataField>
+        </Field>
+        <Field Name="CrossReferenceNo">
+          <DataField>CrossReferenceNo</DataField>
+        </Field>
+        <Field Name="IsTextLine">
+          <DataField>IsTextLine</DataField>
+        </Field>
+        <Field Name="SubLine0000">
+          <DataField>SubLine0000</DataField>
+        </Field>
+        <Field Name="SubLine0001">
+          <DataField>SubLine0001</DataField>
+        </Field>
+        <Field Name="SubLine0002">
+          <DataField>SubLine0002</DataField>
+        </Field>
+        <Field Name="SubLine0003">
+          <DataField>SubLine0003</DataField>
+        </Field>
+        <Field Name="SubLine0004">
+          <DataField>SubLine0004</DataField>
+        </Field>
+        <Field Name="SubLine0100">
+          <DataField>SubLine0100</DataField>
+        </Field>
+        <Field Name="SubLine0101">
+          <DataField>SubLine0101</DataField>
+        </Field>
+        <Field Name="SubLine0102">
+          <DataField>SubLine0102</DataField>
+        </Field>
+        <Field Name="SubLine0200">
+          <DataField>SubLine0200</DataField>
+        </Field>
+        <Field Name="SubLine0201">
+          <DataField>SubLine0201</DataField>
+        </Field>
+        <Field Name="SubLine0202">
+          <DataField>SubLine0202</DataField>
+        </Field>
+        <Field Name="SubLine0203">
+          <DataField>SubLine0203</DataField>
+        </Field>
+        <Field Name="SubLine0204">
+          <DataField>SubLine0204</DataField>
+        </Field>
+        <Field Name="SubLine0205">
+          <DataField>SubLine0205</DataField>
+        </Field>
+        <Field Name="SubLine0206">
+          <DataField>SubLine0206</DataField>
+        </Field>
+        <Field Name="VAT00">
+          <DataField>VAT00</DataField>
+        </Field>
+        <Field Name="VAT01">
+          <DataField>VAT01</DataField>
+        </Field>
+        <Field Name="VAT02">
+          <DataField>VAT02</DataField>
+        </Field>
+        <Field Name="VAT03">
+          <DataField>VAT03</DataField>
+        </Field>
+        <Field Name="VAT04">
+          <DataField>VAT04</DataField>
+        </Field>
+        <Field Name="VATC00">
+          <DataField>VATC00</DataField>
+        </Field>
+        <Field Name="VATC01">
+          <DataField>VATC01</DataField>
+        </Field>
+        <Field Name="VATC02">
+          <DataField>VATC02</DataField>
+        </Field>
+        <Field Name="VATC03">
+          <DataField>VATC03</DataField>
+        </Field>
+        <Field Name="WorkDescriptionLineNumber">
+          <DataField>WorkDescriptionLineNumber</DataField>
+        </Field>
+        <Field Name="WorkDescriptionLine">
+          <DataField>WorkDescriptionLine</DataField>
+        </Field>
+        <Field Name="Test_Code_Header">
+          <DataField>Test_Code_Header</DataField>
+        </Field>
+        <Field Name="Test_Code_Line">
+          <DataField>Test_Code_Line</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

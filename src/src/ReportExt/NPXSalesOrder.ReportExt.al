@@ -33,7 +33,6 @@ reportextension 50200 "NPX Sales Order" extends "PEB Sales Order"
                 T.SetENULanguage(CurrReport.ObjectId(false));
                 T.SetLanguage('ENU', CurrReport.ObjectId(false));
 
-                DocMgt.SetHeaderCaption(T.x('Test Code'), 50203);
 
                 T.x('Test Code');
 

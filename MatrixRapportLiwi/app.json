@@ -1,0 +1,39 @@
+{
+  "id": "550cd92b-b7b5-44b8-a169-70626febf0c9",
+  "name": "MatrixRapportLiwi",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "b830ef47-c998-4e30-bb03-52be437f36f6",
+      "publisher": "Programekonomi Svenska AB",
+      "name": "SweBase",
+      "version": "0.0.0.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "25.0.0.0",
+  "idRanges": [
+    {
+      "from": 50600,
+      "to": 50650
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

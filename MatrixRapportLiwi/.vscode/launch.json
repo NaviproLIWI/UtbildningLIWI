@@ -3,41 +3,6 @@
     "version": "0.2.0",
     "configurations": [
     {
-    "name": "LIWI Sandbox",
-    "request": "launch",
-    "type": "al",
-    "environmentType": "Sandbox",
-    "server": "http://WILL3sandbox",
-    "serverInstance": "BC",
-    "tenant": "default",
-    "authentication": "UserPassword",
-    "startupObjectId": 50202,
-    "startupObjectType": "Page",
-    "schemaUpdateMode": "ForceSync",
-    "breakOnError": "All",
-    "launchBrowser": true,
-    "enableLongRunningSqlStatements": true,
-    "enableSqlInformationDebugger": true
-    },
-    {
-        "name": "Trainee",
-        "type": "al",
-        "request": "launch",
-        "environmentType": "Sandbox",
-        "environmentName": "Trainee",
-        "tenant": "0f6c6e9d-a8b7-43c5-a7b5-16f80a4bd997",
-        "launchBrowser": true,
-        "startupObjectId": 9307,
-        "startupObjectType": "Page",
-        "breakOnError": "All",
-        "breakOnRecordWrite": "None",
-        "enableSqlInformationDebugger": true,
-        "enableLongRunningSqlStatements": true,
-        "longRunningSqlStatementsThreshold": 500,
-        "numberOfSqlStatements": 10,
-        "schemaUpdateMode": "Synchronize"
-    }, 
-    {
         "name": "Microsoft docker sandbox",
             "request": "launch",
             "type": "al",
@@ -53,7 +18,7 @@
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true
-            },
+            }
 
             
     

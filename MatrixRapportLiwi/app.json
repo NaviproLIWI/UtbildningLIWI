@@ -1,8 +1,8 @@
 {
   "id": "550cd92b-b7b5-44b8-a169-70626febf0c9",
   "name": "MatrixRapportLiwi",
-  "publisher": "Default Publisher LIWI",
-  "version": "2.0.0.0",
+  "publisher": "LIWI",
+  "version": "2.0.0.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -15,6 +15,18 @@
       "id": "b830ef47-c998-4e30-bb03-52be437f36f6",
       "publisher": "Programekonomi Svenska AB",
       "name": "SweBase",
+      "version": "0.0.0.0"
+    },
+     {
+      "id": "263e0154-82ae-44b6-82c1-21fe4201f54a",
+      "publisher": "SmartApps",
+      "name": "LicenseProvider",
+      "version": "0.0.0.0"
+    },
+    {
+      "id": "87ee299f-b3ce-4f07-8916-0dbc275a1ba8",
+      "publisher": "Programekonomi Svenska AB",
+      "name": "PaymentProvider",
       "version": "0.0.0.0"
     }
   ],
@@ -32,7 +44,7 @@
     "allowDownloadingSource": true,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "14.0",
+  "runtime": "16.0",
   "features": [
     "NoImplicitWith"
   ]

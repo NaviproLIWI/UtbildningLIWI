@@ -7,7 +7,4 @@ codeunit 50600 "testcodeunit"
     begin
 
     end;
-
-    var
-        Page: Record PEB 
 }

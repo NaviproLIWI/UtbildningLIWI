@@ -3,6 +3,21 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="Notes Handling">
     <body>
       <group id="body">
+        <trans-unit id="PageExtension 2527411841 - Method 1483195525 - NamedType 2344026547" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1958797090">
+          <source>Notes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Export - Method ExportNotesToExcel - NamedType NotesLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2527411841 - Method 1483195525 - NamedType 2499179930" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1958797090">
+          <source>Notes_%1_%2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Export - Method ExportNotesToExcel - NamedType ExcelFileName</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2527411841 - Action 1483195525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Export Notes to Excel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Export - Action ExportNotesToExcel - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2527411841 - NamedType 3726724574" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2527411841">
           <source>Excel is successfully imported.</source>
           <note from="Developer" annotates="general" priority="2"></note>

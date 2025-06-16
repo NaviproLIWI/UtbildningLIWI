@@ -1,4 +1,4 @@
-pageextension 50205 "NPX Customer Import" extends "Customer List"
+pageextension 50410 "NPX Customer Import" extends "Customer List"
 {
     actions
     {
@@ -40,6 +40,7 @@ pageextension 50205 "NPX Customer Import" extends "Customer List"
         Chunk: Text;
         CustNo: Text;
         UserIdText: Text;
+        CreatedText: Text;
         RecordLink: Record "Record Link";
         Customer: Record Customer;
         RecordLinkMgt: Codeunit "Record Link Management";
@@ -76,10 +77,12 @@ pageextension 50205 "NPX Customer Import" extends "Customer List"
                 RecordLink.Insert();
                 RecordLink.Company := CompanyName;
                 RecordLink.Type := RecordLink.Type::Note;
-                RecordLink.Created := CurrentDateTime;
+
+                CreatedText := GetValueAtCell(RowNo, headerCreatedCol); //TODO: LIWI test
+                if not Evaluate(RecordLink.Created, CreatedText) then
+                    RecordLink.Created := CurrentDateTime;
 
                 RecordLink."User ID" := UserIdText;
-
                 Customer.Get(GetValueAtCell(RowNo, 1));
                 RecordLink."Record ID" := Customer.RecordId;
 

@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Your own server",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "OnPrem",
+            "server": "http://bcserver",
+            "serverInstance": "BC",
+            "authentication": "UserPassword",
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "default",
+            "usePublicURLFromServer": true
+        },
+        {
+    "name": "LIWI Sandbox",
+    "request": "launch",
+    "type": "al",
+    "environmentType": "Sandbox",
+    "server": "http://WILL3sandbox",
+    "serverInstance": "BC",
+    "tenant": "default",
+    "authentication": "UserPassword",
+    "startupObjectId": 50202,
+    "startupObjectType": "Page",
+    "schemaUpdateMode": "ForceSync",
+    "breakOnError": "All",
+    "launchBrowser": true,
+    "enableLongRunningSqlStatements": true,
+    "enableSqlInformationDebugger": true
+    }
+    ]
+}

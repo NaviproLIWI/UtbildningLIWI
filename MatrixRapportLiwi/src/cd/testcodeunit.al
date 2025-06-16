@@ -8,4 +8,7 @@ codeunit 50600 "testcodeunit"
 
     end;
 
+    var
+        test: record "PEB Document Code";
+
 }

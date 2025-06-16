@@ -54,11 +54,11 @@ codeunit 50208 MathParser
     end;
 
     local procedure CreateASTDivide(Left: Interface "I_ASTNode"; Right: Interface "I_ASTNode"): Interface I_ASTNode
-    var
-        DivideInstance: codeunit ASTDivide;
+    // var
+    //     DivideInstance: codeunit ASTDivide;
     begin
-        DivideInstance.InitDivide(left, right);
-        exit(DivideInstance);
+        // DivideInstance.InitDivide(left, right);
+        // exit(DivideInstance);
     end;
 
     local procedure CreateASTExponent(Left: Interface I_ASTNode; Right: Interface I_ASTNode): Interface I_ASTNode

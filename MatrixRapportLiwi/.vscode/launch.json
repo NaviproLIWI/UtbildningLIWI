@@ -7,7 +7,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "server": "http://liwisandbox3",
+            "server": "http://liwisandbox33",
             "serverInstance": "BC",
             "tenant": "default",
             "authentication": "UserPassword", 

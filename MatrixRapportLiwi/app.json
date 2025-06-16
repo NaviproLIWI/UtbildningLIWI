@@ -18,15 +18,9 @@
       "version": "0.0.0.0"
     },
      {
-      "id": "263e0154-82ae-44b6-82c1-21fe4201f54a",
-      "publisher": "SmartApps",
-      "name": "LicenseProvider",
-      "version": "0.0.0.0"
-    },
-    {
-      "id": "87ee299f-b3ce-4f07-8916-0dbc275a1ba8",
-      "publisher": "Programekonomi Svenska AB",
-      "name": "PaymentProvider",
+      "id": "c9605102-6218-4df6-9274-8abec966016c",
+      "name": "Anyware Licensing",
+      "publisher": "NaviPro",
       "version": "0.0.0.0"
     }
   ],

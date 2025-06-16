@@ -33,10 +33,50 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - NamedType UploadExcelMsg</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2527411841 - Action 3007461878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Import Note Dates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - Action ImportNoteDates - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2527411841 - Action 2983487766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
           <source>Import Notes From Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Customer Import - Action ImportNotesFMExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - Method 1483195525 - NamedType 2344026547" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2931039744">
+          <source>Notes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Export - Method ExportNotesToExcel - NamedType NotesLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - Method 1483195525 - NamedType 2499179930" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2931039744">
+          <source>Notes_%1_%2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Export - Method ExportNotesToExcel - NamedType ExcelFileName</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - Action 1483195525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Export Notes to Excel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Export - Action ExportNotesToExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - NamedType 3726724574" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1932137087">
+          <source>Excel is successfully imported.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Import - NamedType ExcelImportSucess</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - NamedType 511806700" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1932137087">
+          <source>No Excel file found!</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Import - NamedType NoFileFoundMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - NamedType 4273853447" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1932137087">
+          <source>Please Choose the Excel file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Import - NamedType UploadExcelMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2931039744 - Action 2983487766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Import Notes From Excel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension NPX Sales Order Import - Action ImportNotesFMExcel - Property Caption</note>
         </trans-unit>
       </group>
     </body>

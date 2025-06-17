@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension NPX Customer Import (ID 50410) extends Record Customer List.
+/// </summary>
 pageextension 50410 "NPX Customer Import" extends "Customer List"
 {
     actions
@@ -151,59 +154,6 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
         else
             exit('');
     end;
-
-    // local procedure UpdateOrderNoteDatesFromExcelOnly()
-    // var
-    //     ExcelRow: Integer;
-    //     ColNo: Integer;
-    //     MaxRowNo: Integer;
-    //     headerCreatedCol: Integer;
-    //     CreatedText: Text;
-    //     CreatedDT: DateTime;
-    //     Cust: Record Customer;
-    //     Link: Record "Record Link";
-    // begin
-    //     TempExcelBuffer.Reset();
-    //     if not TempExcelBuffer.FindLast() then
-    //         exit;
-    //     MaxRowNo := TempExcelBuffer."Row No.";
-
-
-    //     headerCreatedCol := 0;
-    //     for ColNo := 1 to 50 do begin
-    //         if GetValueAtCell(1, ColNo) = Link.FieldCaption(Created) then begin
-    //             headerCreatedCol := ColNo;
-    //             break;
-    //         end;
-    //     end;
-
-    //     if headerCreatedCol = 0 then
-    //         Error('Kolumnen "%1" saknas i Excel.', Link.FieldCaption(Created));
-
-    //     ExcelRow := 2;
-
-
-
-    //     if Cust.FindSet() then
-    //         repeat
-    //             Link.Reset();
-    //             Link.SetRange("Record ID", Cust.RecordId);
-    //             Link.SetRange(Type, Link.Type::Note);
-    //             if Link.FindSet() then
-    //                 repeat
-    //                     if ExcelRow > MaxRowNo then
-    //                         exit;
-    //                     CreatedText := GetValueAtCell(ExcelRow, headerCreatedCol);
-    //                     if Evaluate(CreatedDT, CreatedText) then begin
-    //                         Link.Created := CreatedDT;
-    //                         Link.Modify();
-    //                     end;
-    //                     ExcelRow += 1;
-    //                 until Link.Next() = 0;
-    //         until Cust.Next() = 0;
-    //     Message('%1 datum uppdaterade');
-
-    // end;
 
     local procedure UpdateOrderNoteDatesFromExcelOnly()
     var

@@ -210,12 +210,14 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
         ExcelRow: Integer;
         ColNo: Integer;
         MaxRowNo: Integer;
-        headerCreatedCol: Integer;
-        headerUserIdCol: Integer;
+        hdrLinkIdCol: Integer;
+        hdrCreatedCol: Integer;
+        hdrUserIdCol: Integer;
         headerVal: Text;
+        LinkIDText: Text;
+        LinkID: Integer;
         CreatedText: Text;
         CreatedDT: DateTime;
-        Cust: Record Customer;
         RecLink: Record "Record Link";
     begin
         ReadExcelSheet();
@@ -227,50 +229,40 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
         MaxRowNo := TempExcelBuffer."Row No.";
 
 
-        headerCreatedCol := 0;
-        headerUserIdCol := 0;
+        hdrLinkIdCol := 0;
+        hdrCreatedCol := 0;
+        hdrUserIdCol := 0;
         for ColNo := 1 to 50 do begin
             headerVal := GetValueAtCell(1, ColNo);
+            if headerVal = RecLink.FieldCaption("Link ID") then
+                hdrLinkIdCol := ColNo;
             if headerVal = RecLink.FieldCaption(Created) then
-                headerCreatedCol := ColNo;
+                hdrCreatedCol := ColNo;
             if headerVal = RecLink.FieldCaption("User ID") then
-                headerUserIdCol := ColNo;
-            if (headerCreatedCol > 0) and (headerUserIdCol > 0) then
+                hdrUserIdCol := ColNo;
+            if (hdrLinkIdCol > 0) and (hdrCreatedCol > 0) and (hdrUserIdCol > 0) then
                 break;
         end;
-        if headerCreatedCol = 0 then
+
+        if hdrLinkIdCol = 0 then
+            Error('Kolumnen "%1" saknas i Excel.', RecLink.FieldCaption("Link ID"));
+        if hdrCreatedCol = 0 then
             Error('Kolumnen "%1" saknas i Excel.', RecLink.FieldCaption(Created));
 
 
-        ExcelRow := 2;
+        for ExcelRow := 2 to MaxRowNo do begin
+            LinkIDText := GetValueAtCell(ExcelRow, hdrLinkIdCol);
+            CreatedText := GetValueAtCell(ExcelRow, hdrCreatedCol);
+            if Evaluate(LinkID, LinkIDText) and Evaluate(CreatedDT, CreatedText) then begin
+                if RecLink.Get(LinkID) then begin
+                    RecLink.Created := CreatedDT;
+                    RecLink."User ID" := GetValueAtCell(ExcelRow, hdrUserIdCol);
+                    Reclink.Modify();
+                end;
+            end;
+        end;
 
-
-        if Cust.FindSet() then
-            repeat
-                RecLink.Reset();
-                RecLink.SetRange("Record ID", Cust.RecordId);
-                RecLink.SetRange(Type, RecLink.Type::Note);
-                if RecLink.FindSet() then
-                    repeat
-                        if ExcelRow > MaxRowNo then
-                            exit;
-
-
-                        CreatedText := GetValueAtCell(ExcelRow, headerCreatedCol);
-
-
-                        if EVALUATE(CreatedDT, CreatedText) then begin
-                            RecLink.Created := CreatedDT;
-                            RecLink."User ID" := GetValueAtCell(ExcelRow, headerUserIdCol);
-                            RecLink.Modify();
-                        end;
-
-
-                        ExcelRow += 1;
-                    until RecLink.Next() = 0;
-            until Cust.Next() = 0;
-
-        Message('Datum uppdaterade på %1 anteckningar.', ExcelRow - 2);
+        Message('Datum uppdaterade på %1 anteckningar via Link ID.', MaxRowNo - 1);
     end;
 
 

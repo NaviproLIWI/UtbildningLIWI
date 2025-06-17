@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension NPX Customer Export (ID 50411) extends Record Customer List.
+/// </summary>
 pageextension 50411 "NPX Customer Export" extends "Customer List"
 {
     actions
@@ -59,6 +62,7 @@ pageextension 50411 "NPX Customer Export" extends "Customer List"
         TempExcelBuffer.NewRow();
         TempExcelBuffer.AddColumn(Customer.FieldCaption("No."), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(Customer.FieldCaption(Name), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(RecordLink.FieldCaption("Link ID"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         for hdrChunk := 1 to maxChunks do
             TempExcelBuffer.AddColumn(StrSubstNo('%1 part %2', RecordLink.FieldCaption(Note), hdrChunk),
             false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
@@ -77,6 +81,7 @@ pageextension 50411 "NPX Customer Export" extends "Customer List"
                         TempExcelBuffer.NewRow();
                         TempExcelBuffer.AddColumn(Customer."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
                         TempExcelBuffer.AddColumn(Customer.Name, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+                        TempExcelBuffer.AddColumn(RecordLink."Link ID", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
                         RecordLink.CalcFields(Note);
                         NoteText := RecordLinkMgt.ReadNote(RecordLink);
 

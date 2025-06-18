@@ -34,6 +34,22 @@
     "launchBrowser": true,
     "enableLongRunningSqlStatements": true,
     "enableSqlInformationDebugger": true
-    }
+    },
+     {
+        "name": "Hestra Dev Sync",
+        "type": "al",
+        "request": "launch",
+        "environmentType": "Sandbox",
+        "environmentName": "Dev",
+        "tenant": "a9134aba-0258-425b-a945-2ee848ad7bc9",
+        "startupObjectId": 22,
+        "breakOnError": true,
+        "breakOnRecordWrite": false,          
+        "enableSqlInformationDebugger": true,
+        "enableLongRunningSqlStatements": true,
+        "longRunningSqlStatementsThreshold": 500,
+        "numberOfSqlStatements": 10,
+        "schemaUpdateMode": "Synchronize"
+        }  
     ]
 }

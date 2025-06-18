@@ -163,12 +163,20 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
         hdrLinkIdCol: Integer;
         hdrCreatedCol: Integer;
         hdrUserIdCol: Integer;
+        hdrCustNrCol: Integer;
         headerVal: Text;
         LinkIDText: Text;
         LinkID: Integer;
         CreatedText: Text;
+        CustNoText: Text;
+        FullNote: Text;
+        Chunk: Text;
+        NoteText: Text;
+        CustNo: Integer;
         CreatedDT: DateTime;
         RecLink: Record "Record Link";
+        Customer: Record Customer;
+        RecordLinkMgt: Codeunit "Record Link Management";
     begin
         ReadExcelSheet();
 
@@ -178,42 +186,61 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
             exit;
         MaxRowNo := TempExcelBuffer."Row No.";
 
-
-        hdrLinkIdCol := 0;
+        hdrCustNrCol := 0;
         hdrCreatedCol := 0;
         hdrUserIdCol := 0;
         for ColNo := 1 to 50 do begin
             headerVal := GetValueAtCell(1, ColNo);
-            if headerVal = RecLink.FieldCaption("Link ID") then
-                hdrLinkIdCol := ColNo;
+
+            if headerVal = Customer.FieldCaption("No.") then
+                hdrCustNrCol := ColNo;
             if headerVal = RecLink.FieldCaption(Created) then
                 hdrCreatedCol := ColNo;
             if headerVal = RecLink.FieldCaption("User ID") then
                 hdrUserIdCol := ColNo;
-            if (hdrLinkIdCol > 0) and (hdrCreatedCol > 0) and (hdrUserIdCol > 0) then
+
+
+            if (hdrCreatedCol > 0) and (hdrUserIdCol > 0) and (hdrCustNrCol > 0) then
                 break;
         end;
-
-        if hdrLinkIdCol = 0 then
-            Error('Kolumnen "%1" saknas i Excel.', RecLink.FieldCaption("Link ID"));
+        if hdrCustNrCol = 0 then
+            Error('Kolumnen "%1" saknas i Excel.', Customer.FieldCaption("No."));
         if hdrCreatedCol = 0 then
             Error('Kolumnen "%1" saknas i Excel.', RecLink.FieldCaption(Created));
-
+        if hdrUserIdCol = 0 then
+            Error('Kolumnen "%1" saknas i Excel.', RecLink.FieldCaption("User ID"));
 
         for ExcelRow := 2 to MaxRowNo do begin
-            LinkIDText := GetValueAtCell(ExcelRow, hdrLinkIdCol);
             CreatedText := GetValueAtCell(ExcelRow, hdrCreatedCol);
-            if Evaluate(LinkID, LinkIDText) and Evaluate(CreatedDT, CreatedText) then begin
-                if RecLink.Get(LinkID) then begin
-                    RecLink.Created := CreatedDT;
-                    RecLink."User ID" := GetValueAtCell(ExcelRow, hdrUserIdCol);
-                    Reclink.Modify();
+            CustNoText := GetValueAtCell(ExcelRow, hdrCustNrCol);
+
+            if (CustNoText <> '') and Evaluate(CreatedDT, CreatedText) then begin
+                if Customer.Get(CustNoText) then begin
+                    FullNote := GetValueAtCell(ExcelRow, 4) + GetValueAtCell(ExcelRow, 5);
                 end;
+
+                RecLink.Reset();
+                RecLink.SetRange("Record ID", Customer.RecordId);
+                RecLink.SetRange(Type, RecLink.Type::Note);
+                RecLink.SetRange("User ID", GetValueAtCell(ExcelRow, hdrUserIdCol));
+                if RecLink.FindSet() then
+                    repeat
+                        RecLink.CalcFields(Note);
+                        NoteText := RecordLinkMgt.ReadNote(RecLink);
+                        if NoteText = FullNote then begin
+                            RecLink.Created := CreatedDT;
+                            RecLink.Modify();
+                            break;
+                        end;
+                    until RecLink.Next() = 0;
+
             end;
         end;
 
-        Message('Datum uppdaterade på %1 anteckningar via Link ID.', MaxRowNo - 1);
+        Message('Dates Updated.');
+
     end;
+
 
 
 

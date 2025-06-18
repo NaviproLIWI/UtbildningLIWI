@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension NPX Sales Order Import (ID 50413) extends Record Sales Order List.
+/// </summary>
 pageextension 50413 "NPX Sales Order Import" extends "Sales Order List"
 {
 
@@ -80,13 +83,13 @@ pageextension 50413 "NPX Sales Order Import" extends "Sales Order List"
                 RecordLink.Company := CompanyName;
                 RecordLink.Type := RecordLink.Type::Note;
 
-                CreatedText := GetValueAtCell(RowNo, headerCreatedCol); //TODO: LIWI test
+                CreatedText := GetValueAtCell(RowNo, headerCreatedCol);
                 if not Evaluate(RecordLink.Created, CreatedText) then
                     RecordLink.Created := CurrentDateTime;
 
                 RecordLink."User ID" := UserIdText;
                 OrderNo := GetValueAtCell(RowNo, 1);
-                SalesOrder.Get(SalesOrder."Document Type"::Order, OrderNo); //här blir det fel
+                SalesOrder.Get(SalesOrder."Document Type"::Order, OrderNo);
                 RecordLink."Record ID" := SalesOrder.RecordId;
 
                 FullNote := '';

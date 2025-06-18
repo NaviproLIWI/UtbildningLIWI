@@ -32,7 +32,7 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
                 Image = Import;
                 trigger OnAction()
                 begin
-                    UpdateOrderNoteDatesFromExcelOnly();
+                    UpdateNoteDatesFromExcelOnly();
                 end;
 
             }
@@ -155,7 +155,7 @@ pageextension 50410 "NPX Customer Import" extends "Customer List"
             exit('');
     end;
 
-    local procedure UpdateOrderNoteDatesFromExcelOnly()
+    local procedure UpdateNoteDatesFromExcelOnly()
     var
         ExcelRow: Integer;
         ColNo: Integer;

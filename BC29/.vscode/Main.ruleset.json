@@ -1,0 +1,10 @@
+{
+    "name": "Personal Project ruleset",
+    "description": "A list of project specific rules",
+    "includedRuleSets": [
+        {
+            "action": "Default",
+            "path": ".rulesets/navipro.ruleset.json"
+        }
+    ]
+}

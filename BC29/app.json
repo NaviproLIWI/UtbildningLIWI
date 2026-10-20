@@ -1,0 +1,35 @@
+{
+  "id": "Skapa",
+  "name": "Fyll i",
+  "publisher": "Navipro AB",
+  "version": "26.0.0.0",
+  "brief": "",
+  "description": "Price Duplicate Check",
+  "privacyStatement": "https://www.navipro.se/privacy",
+  "EULA": "https://www.navipro.se",
+  "help": "https://www.navipro.se",
+  "url": "https://www.navipro.se",
+  "logo": "img/n-app.png",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 60200,
+      "to": 60224
+    }
+  ],
+  "features": [
+    "TranslationFile",
+    "ExcludeGeneratedTranslations",
+    "NoImplicitWith"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "includeSourceInSymbolFile": true,
+    "allowDownloadingSource": false
+  },
+  "runtime": "14.0",
+  "target": "Cloud"
+}
